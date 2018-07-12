@@ -104,20 +104,19 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   // Override the current require with this new one
   return newRequire;
 })({"src/newModule.js":[function(require,module,exports) {
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var getName = exports.getName = function getName() {
-  return 'newModule';
-};
+var SUM = exports.SUM = 2 + 2 * 2;
 },{}],"index.js":[function(require,module,exports) {
 'use strict';
 
 var _newModule = require('./src/newModule');
 
-console.log((0, _newModule.getName)());
+console.log('SUM -> ', _newModule.SUM);
+console.log('HI');
 },{"./src/newModule":"src/newModule.js"}],"../../../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
