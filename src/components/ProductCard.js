@@ -10,7 +10,7 @@ class ProductCard extends React.Component {
     const { image, title, price } = this.props;
 
     return (
-      <div> 
+      <div>
         <Image { ...image } />
         <TextBox>
           { title }
@@ -26,12 +26,7 @@ ProductCard.propTypes = {
     id: PropTypes.number,
     title: PropTypes.string,
     price: PropTypes.number,
-    image: PropTypes.shape({
-      url: PropTypes.string,
-      alt: PropTypes.string,
-      width: PropTypes.string,
-      height: PropTypes.string,
-    })
+    image: PropTypes.objectOf(Image.propTypes)
   }),
 };
 
@@ -40,12 +35,10 @@ ProductCard.defaultProps = {
     id: 1,
     title: 'Product 1',
     price: 11500,
-    image: {
-      url: 'http://via.placeholder.com/200x200',
-      width: '200px',
-      height: '200px',
-      alt: 'Что-то 1'
-    },
+    url: 'http://via.placeholder.com/200x200',
+    width: '200px',
+    height: '200px',
+    alt: 'Что-то 1'
   }
 };
 

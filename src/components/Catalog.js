@@ -1,25 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import ProductCard from "../components/ProductCard";
-import { map } from 'lodash/collection';
+import ProductCard from '../components/ProductCard';
+import { map } from 'lodash';
 
-class Catalog extends React.Component {
-  render() {
-    const products = map(
-      this.props.products,
-      (product) => (
-        <ProductCard key={product.id} {...product} />
+const Catalog = ({ products }) => (
+  <div>
+    {
+      map(
+        products,
+        (product) => (
+          <ProductCard key={product.id} {...product} />
+        )
       )
-    );
-    
-    return (
-      <div> 
-        { products }
-      </div>
-    );
-  }
-}
+    }
+  </div>
+);
 
 Catalog.propTypes = {
   products: PropTypes.array

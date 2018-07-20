@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Price = ({ price }) => (
-  <p>
+  <span>
     { `Цена: ${price}` }
-  </p>
+  </span>
 );
 
 Price.propTypes = {

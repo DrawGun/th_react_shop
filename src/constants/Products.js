@@ -5,8 +5,8 @@ export const products = [
     price: 11500,
     image: {
       url: 'http://via.placeholder.com/200x200',
-      width: '200px',
-      height: '200px',
+      width: '200',
+      height: '200',
       alt: 'Что-то 1'
     },
   },
@@ -16,8 +16,8 @@ export const products = [
     price: 22600,
     image: {
       url: 'http://via.placeholder.com/200x200',
-      width: '200px',
-      height: '200px',
+      width: '200',
+      height: '200',
       alt: 'Что-то 2'
     },
   },
@@ -27,8 +27,8 @@ export const products = [
     price: 33500,
     image: {
       url: 'http://via.placeholder.com/200x200',
-      width: '200px',
-      height: '200px',
+      width: '200',
+      height: '200',
       alt: 'Что-то 3'
     },
   }
