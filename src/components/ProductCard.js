@@ -36,8 +36,8 @@ ProductCard.defaultProps = {
     title: 'Product 1',
     price: 11500,
     url: 'http://via.placeholder.com/200x200',
-    width: '200px',
-    height: '200px',
+    width: '200',
+    height: '200',
     alt: 'Что-то 1'
   }
 };
