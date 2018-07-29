@@ -1,22 +1,39 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import CardContext from '../components/CardContext';
 import Image from './Image';
 import TextBox from './TextBox';
-import Price from './Price'
+import Price from './Price';
+import Button from './elements/Button';
 
-class ProductCard extends React.Component {
+class ProductCard extends Component {
+  constructor(props) {
+    super(props); 
+  }
+
   render() {
-    const { image, title, price } = this.props;
+    const { id, image, title, price } = this.props;
 
     return (
-      <div>
-        <Image { ...image } />
-        <TextBox>
-          { title }
-        </TextBox>
-        <Price price={price} />
-      </div>
+      <CardContext.Consumer>
+        {
+          card => {
+            return (
+              <div>
+                <Image {...image} />
+                <TextBox>
+                  {title}
+                </TextBox>
+                <Price price={price} />
+                <Button
+                  title='Добавить в корзину'
+                  onClick={() => card.orderProduct(id)} />
+              </div>
+            )
+          }
+        }
+      </CardContext.Consumer>
     );
   }
 }
