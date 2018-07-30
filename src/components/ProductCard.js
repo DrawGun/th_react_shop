@@ -1,23 +1,29 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import Image from './Image';
 import TextBox from './TextBox';
-import Price from './Price'
+import Price from './Price';
+import AddToBasket from './AddToBasket';
 
-class ProductCard extends React.Component {
+class ProductCard extends Component {
+  constructor(props) {
+    super(props); 
+  }
+
   render() {
-    const { image, title, price } = this.props;
+    const { id, image, title, price } = this.props;
 
     return (
       <div>
-        <Image { ...image } />
+        <Image {...image} />
         <TextBox>
-          { title }
+          {title}
         </TextBox>
         <Price price={price} />
+        <AddToBasket product={this.props} />
       </div>
-    );
+    )
   }
 }
 

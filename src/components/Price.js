@@ -11,4 +11,8 @@ Price.propTypes = {
   price: PropTypes.number
 };
 
+Price.defaultProps = {
+  price: 100500
+};
+
 export default Price;
