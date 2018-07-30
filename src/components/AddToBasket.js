@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import CardContext from '../components/CardContext';
+import CartContext from '../components/CartContext';
 
 import Button from './elements/Button';
 
@@ -9,7 +9,7 @@ class AddToBasket extends Component {
     const { product } = this.props;
 
     return (
-      <CardContext.Consumer>
+      <CartContext.Consumer>
         {
           card => {
             return (
@@ -19,7 +19,7 @@ class AddToBasket extends Component {
             )
           }
         }
-      </CardContext.Consumer>
+      </CartContext.Consumer>
     );
   }
 }

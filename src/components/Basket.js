@@ -1,12 +1,12 @@
 import React, { Component, Fragment } from 'react';
 
-import CardContext from '../components/CardContext';
+import CartContext from '../components/CartContext';
 import Button from './elements/Button';
 
 class Basket extends Component {
   render() {
     return (
-      <CardContext.Consumer>
+      <CartContext.Consumer>
         {
           card => {
             const title = `Выбрано заказов: ${card.basket.length}`;
@@ -18,7 +18,7 @@ class Basket extends Component {
             )
           }
         }
-      </CardContext.Consumer>
+      </CartContext.Consumer>
     );
   }
 }

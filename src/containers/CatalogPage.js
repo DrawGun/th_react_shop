@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { products } from '../constants/Products';
 
-import CardContext from '../components/CardContext';
+import CartContext from '../components/CartContext';
 import Catalog from '../components/Catalog';
 
 class CatalogPage extends Component {
@@ -32,9 +32,9 @@ class CatalogPage extends Component {
     };
 
     return (
-      <CardContext.Provider value={contextObj} >
+      <CartContext.Provider value={contextObj} >
         <Catalog products={ products } />
-      </CardContext.Provider>
+      </CartContext.Provider>
     );
   }
 }
