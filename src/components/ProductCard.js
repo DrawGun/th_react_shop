@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import CardContext from '../components/CardContext';
 import Image from './Image';
 import TextBox from './TextBox';
 import Price from './Price';
-import Button from './elements/Button';
+import AddToBasket from './AddToBasket';
 
 class ProductCard extends Component {
   constructor(props) {
@@ -16,25 +15,15 @@ class ProductCard extends Component {
     const { id, image, title, price } = this.props;
 
     return (
-      <CardContext.Consumer>
-        {
-          card => {
-            return (
-              <div>
-                <Image {...image} />
-                <TextBox>
-                  {title}
-                </TextBox>
-                <Price price={price} />
-                <Button
-                  title='Добавить в корзину'
-                  onClick={() => card.orderProduct(id)} />
-              </div>
-            )
-          }
-        }
-      </CardContext.Consumer>
-    );
+      <div>
+        <Image {...image} />
+        <TextBox>
+          {title}
+        </TextBox>
+        <Price price={price} />
+        <AddToBasket product={this.props} />
+      </div>
+    )
   }
 }
 

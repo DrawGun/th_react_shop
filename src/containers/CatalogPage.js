@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { find, concat } from 'lodash';
-
 import { products } from '../constants/Products';
 
 import CardContext from '../components/CardContext';
@@ -11,27 +9,26 @@ import Catalog from '../components/Catalog';
 class CatalogPage extends Component {
   constructor(props) {
     super(props);
-    this.state = { orderedProducts: [] };
+    this.state = { basket: [] };
 
-    this.orderProduct = this.orderProduct.bind(this);
+    this.addToBasket = this.addToBasket.bind(this);
   }
 
-  orderProduct(productId) {
-    const product = find(products, (product) => (product.id == productId));
-    const orderedProducts = concat(this.state.orderedProducts, product);
+  addToBasket(product) {
+    const basket = [...this.state.basket, product]
 
     return(  
       this.setState({
-        orderedProducts
+        basket
       })
     );
   };
 
   render() {
-    const { orderedProducts } = this.state;
+    const { basket } = this.state;
     const contextObj = {
-      orderedProducts,
-      orderProduct: this.orderProduct
+      basket,
+      addToBasket: this.addToBasket
     };
 
     return (

@@ -1,20 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Button = ({ title, onClick }) => (
+const Button = ({ children, onClick }) => (
   <button onClick={onClick}>
-    {title}
+    {children}
   </button>
 );
 
 Button.propTypes = {
-  title: PropTypes.string,
+  children: PropTypes.node,
   onClick: PropTypes.func
 };
 
 Button.defaultProps = { 
   onClick: () => {},
-  title: 'Добавить в корзину'
+  children: null
 };
 
 export default Button;

@@ -1,19 +1,20 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 
 import CardContext from '../components/CardContext';
+
 import Button from './elements/Button';
 
-class Basket extends Component {
+class AddToBasket extends Component {
   render() {
+    const { product } = this.props;
+
     return (
       <CardContext.Consumer>
         {
           card => {
-            const title = `Выбрано заказов: ${card.basket.length}`;
-            
             return (
-              <Button>
-                {title}
+              <Button onClick={() => card.addToBasket(product)}>
+                {'Добавить в корзину'}
               </Button>
             )
           }
@@ -23,4 +24,4 @@ class Basket extends Component {
   }
 }
 
-export default Basket;
+export default AddToBasket;
