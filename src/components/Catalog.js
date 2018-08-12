@@ -1,8 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import ProductCard from '../components/ProductCard';
-import Basket from '../components/Basket';
+import { Container } from 'reactstrap';
+
+import ProductCard from '../components/product_card/ProductCard';
 import { map } from 'lodash';
 
 class Catalog extends Component {
@@ -15,8 +16,7 @@ class Catalog extends Component {
 
     return (
       <Fragment>
-        <Basket />
-        <div>
+        <Container>
           {
             map(
               products,
@@ -25,12 +25,12 @@ class Catalog extends Component {
               )
             )
           }
-        </div>
+        </Container>
       </Fragment>  
     );
   }
 }
-
+  
 Catalog.propTypes = {
   products: PropTypes.array
 };

@@ -1,20 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Button = ({ children, onClick }) => (
-  <button onClick={onClick}>
+import { Button as BootstrapButton } from 'reactstrap';
+
+const Button = ({ children, onClick, color }) => (
+  <BootstrapButton onClick={onClick} color={color}>
     {children}
-  </button>
+  </BootstrapButton>
 );
 
 Button.propTypes = {
   children: PropTypes.node,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  color: PropTypes.string
 };
 
 Button.defaultProps = { 
   onClick: () => {},
-  children: null
+  children: null,
+  color: 'primary'
 };
 
 export default Button;

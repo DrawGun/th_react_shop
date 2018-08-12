@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 
-import CartContext from '../components/CartContext';
+import CartContext from '../helpers/CartContext';
 import Button from './elements/Button';
 
 class Basket extends Component {

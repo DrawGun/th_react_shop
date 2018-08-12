@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import { Container, Row, Media } from 'reactstrap';
+
 import Image from './Image';
 import TextBox from './TextBox';
 import Price from './Price';
@@ -15,14 +17,27 @@ class ProductCard extends Component {
     const { id, image, title, price } = this.props;
 
     return (
-      <div>
-        <Image {...image} />
-        <TextBox>
-          {title}
-        </TextBox>
-        <Price price={price} />
-        <AddToBasket product={this.props} />
-      </div>
+      <Row className='mb-2'>
+        <Media>
+          <Media className='mr-2' left>
+            <Image {...image} />
+          </Media>
+          <Media body>
+            <Media heading>
+              <TextBox>
+                {title}
+              </TextBox>
+            </Media>
+            <Price price={price} />
+            
+            <Container className='mt-3'>
+              <Row>
+                <AddToBasket product={this.props} />
+              </Row>
+            </Container>
+          </Media>
+        </Media>
+      </Row>
     )
   }
 }
