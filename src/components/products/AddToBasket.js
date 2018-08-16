@@ -27,13 +27,13 @@ class AddToBasket extends Component {
   render() {
     const { product } = this.props;
     const { count } = this.state;
-    
+
     return (
       <CartContext.Consumer>
         {
           card => {
             return (
-              <ButtonGroup size="lg">
+              <ButtonGroup size='lg'>
                 <Button onClick={() => this.changeCount('decrement')}>
                   {'-'}
                 </Button>

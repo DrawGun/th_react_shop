@@ -1,11 +1,11 @@
-import ProductsRoute from 'routes/Products';
-import ProductRoute from 'routes/Product';
-import BascketRoute from 'routes/Basket';
-import ContactsRoute from 'routes/Contacts';
+import ProductsRoute from './Products';
+import ProductRoute from './Product';
+import BasketRoute from './Basket';
+import ContactsRoute from './Contacts';
 
 export default () => ([
   ProductsRoute,
   ProductRoute,
-  BascketRoute,
+  BasketRoute,
   ContactsRoute
 ]);

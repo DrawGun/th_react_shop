@@ -5,7 +5,7 @@ import { Media } from 'reactstrap';
 
 const Image = ({ url, alt, width, height }) => (
   <Fragment>
-    <Media object 
+    <Media object
       src={url}
       width={width}
       height={height}
@@ -17,7 +17,7 @@ Image.propTypes = {
   url: PropTypes.string,
   alt: PropTypes.string,
   width: PropTypes.string,
-  height: PropTypes.string,
+  height: PropTypes.string
 };
 
 Image.defaultProps = {

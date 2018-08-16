@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import { Container } from 'reactstrap';
+import { Container, Alert } from 'reactstrap';
 
-import ProductCard from '../components/product_card/ProductCard';
+import ProductCard from './ProductCard';
 import { map } from 'lodash';
 
 class Catalog extends Component {
@@ -12,27 +12,34 @@ class Catalog extends Component {
   }
 
   render() {
-    const { products } = this.props;
+    const { products, message } = this.props;
 
     return (
       <Fragment>
         <Container>
           {
+            message &&
+              <Alert color="info">
+                {message}
+              </Alert>
+          }
+          {
             map(
               products,
-              (product) => (
-                <ProductCard key={product.id} {...product} />
+              (product, index) => (
+                <ProductCard key={`${product.id}-${index}`} {...product} />
               )
             )
           }
         </Container>
-      </Fragment>  
+      </Fragment>
     );
   }
 }
-  
+
 Catalog.propTypes = {
-  products: PropTypes.array
+  products: PropTypes.array,
+  message: PropTypes.string
 };
 
 Catalog.defaultProps = {

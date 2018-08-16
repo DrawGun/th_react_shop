@@ -11,7 +11,11 @@ import {
   NavLink
 } from 'reactstrap';
 
-import Basket from '../../components/Basket';
+import { rootPath, basketPath, contactsPath } from '../../helpers/routes/common';
+
+import BasketButton from '../../components/basket/BasketButton';
+import Link from '../../components/elements/Link';
+import Button from '../../components/elements/Button';
 
 class Header extends Component {
   constructor(props) {
@@ -30,13 +34,30 @@ class Header extends Component {
   render() {
     return (
       <div>
-        <Navbar color="light" light expand="md" className='mb-5'>
-          <NavbarBrand href="/">My shop</NavbarBrand>
+        <Navbar color='light' light expand='md' className='mb-5'>
+          <NavbarBrand tag={Link} to={rootPath}>
+            My shop
+          </NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
-              <NavItem>
-                <Basket />
+            <Nav className='ml-auto' navbar>
+              <NavItem className="mr-2">
+                <NavLink tag={Link} to={contactsPath}>
+                  <Button>
+                    Contacts
+                  </Button>
+                </NavLink>
+              </NavItem>
+              <NavItem className="mr-2">
+                <NavLink
+                  tag={Link}
+                  to={{
+                    pathname: basketPath,
+                    state: { modal: true }
+                  }}
+                >
+                  <BasketButton />
+                </NavLink>
               </NavItem>
             </Nav>
           </Collapse>
