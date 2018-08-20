@@ -1,4 +1,6 @@
 import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
+
 import { Redirect } from 'react-router'
 
 import CartContext from '../../helpers/CartContext';
@@ -17,7 +19,7 @@ class Basket extends Component {
             return (
               <Fragment>
                 {
-                  products.length ? (
+                  (products.length || modal) ? (
                     <BasketContent products={card.basket} />
                   ) : (
                     <Redirect
@@ -36,5 +38,9 @@ class Basket extends Component {
     );
   }
 }
+
+Basket.propTypes = {
+  modal: PropTypes.bool
+};
 
 export default Basket;
