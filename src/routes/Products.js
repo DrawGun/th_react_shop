@@ -4,7 +4,7 @@ import { rootPath } from '../helpers/routes/common';
 
 const Products = {
   exact: true,
-  path: rootPath,
+  path: rootPath(),
   strict: true,
   component: ProductsContainer
 };

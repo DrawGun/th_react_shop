@@ -10,6 +10,7 @@ import { rootPath } from '../../helpers/routes/common';
 
 class Basket extends Component {
   render() {
+    const { modal } = this.props;
     return (
       <CartContext.Consumer>
         {
@@ -24,7 +25,7 @@ class Basket extends Component {
                   ) : (
                     <Redirect
                       to={{
-                        pathname: rootPath,
+                        pathname: rootPath(),
                         state: { message: "В корзине ничего нет" }
                       }}
                     />

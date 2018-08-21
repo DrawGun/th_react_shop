@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import Basket from './Basket';
@@ -23,7 +24,7 @@ class BasketModal extends React.Component {
     });
   }
 
-  render() {    
+  render() {
     const { modal } = this.state;
     const { className } = this.props;
 
@@ -43,5 +44,9 @@ class BasketModal extends React.Component {
   }
 }
 
+BasketModal.propTypes = {
+  history: PropTypes.object,
+  className: PropTypes.string
+};
 
 export default BasketModal;

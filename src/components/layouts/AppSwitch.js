@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import { Route, Switch } from 'react-router-dom';
 
 import createRoutes from '../../routes';
@@ -49,10 +51,14 @@ class AppSwitch extends Component {
           <Route component={NoMatch} />
         </Switch>
 
-        {isModal ? <Route path={basketPath} component={BasketModal} /> : null}
+        {isModal ? <Route path={basketPath()} component={BasketModal} /> : null}
       </MainLayout>
     );
   }
 }
+
+AppSwitch.propTypes = {
+  location: PropTypes.object
+};
 
 export default AppSwitch;
