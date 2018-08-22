@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
 import {
   Collapse,
@@ -11,11 +10,11 @@ import {
   NavLink
 } from 'reactstrap';
 
-import { rootPath, basketPath, contactsPath } from '../../helpers/routes/common';
+import { rootPath } from '../../helpers/routes/common';
 
-import BasketButton from '../../components/basket/BasketButton';
 import Link from '../../components/elements/Link';
-import Button from '../../components/elements/Button';
+
+import Menu from './Menu';
 
 class Header extends Component {
   constructor(props) {
@@ -35,31 +34,12 @@ class Header extends Component {
     return (
       <div>
         <Navbar color='light' light expand='md' className='mb-5'>
-          <NavbarBrand tag={Link} to={rootPath}>
+          <NavbarBrand tag={Link} to={rootPath()}>
             My shop
           </NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className='ml-auto' navbar>
-              <NavItem className="mr-2">
-                <NavLink tag={Link} to={contactsPath}>
-                  <Button>
-                    Contacts
-                  </Button>
-                </NavLink>
-              </NavItem>
-              <NavItem className="mr-2">
-                <NavLink
-                  tag={Link}
-                  to={{
-                    pathname: basketPath,
-                    state: { modal: true }
-                  }}
-                >
-                  <BasketButton />
-                </NavLink>
-              </NavItem>
-            </Nav>
+            <Menu />
           </Collapse>
         </Navbar>
       </div>

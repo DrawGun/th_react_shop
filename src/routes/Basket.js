@@ -5,7 +5,7 @@ import { basketPath } from '../helpers/routes/common';
 const Basket = {
   exact: true,
   strict: true,
-  path: basketPath,
+  path: basketPath(),
   component: BasketContainer
 };
 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import { products } from '../constants/Products';
 
@@ -18,5 +19,9 @@ class ProductsContainer extends Component {
     );
   }
 }
+
+ProductsContainer.propTypes = {
+  location: PropTypes.object
+};
 
 export default ProductsContainer;

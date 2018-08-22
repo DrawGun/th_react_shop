@@ -11,7 +11,7 @@ const NoMatch = () => (
     <Jumbotron>
         <h1 className="display-3 mt-3">No Match!</h1>
         <p className="lead">
-          <Button color="primary" tag={Link} to={rootPath}>На главную</Button>
+          <Button color="primary" tag={Link} to={rootPath()}>На главную</Button>
         </p>
       </Jumbotron>
   </Container>

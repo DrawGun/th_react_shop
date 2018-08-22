@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import { ButtonGroup } from 'reactstrap';
 
@@ -51,5 +52,9 @@ class AddToBasket extends Component {
     );
   }
 }
+
+AddToBasket.propTypes = {
+  product: PropTypes.object
+};
 
 export default AddToBasket;
