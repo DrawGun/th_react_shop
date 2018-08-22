@@ -19,7 +19,7 @@ class Basket extends Component {
             return (
               <Fragment>
                 {
-                  (products.length || modal) ? (
+                  products.length ? (
                     <BasketContent products={card.basket} />
                   ) : (
                     <Redirect

@@ -42,8 +42,9 @@ class AppSwitch extends Component {
     return (
       <MainLayout>
         <Switch location={isModal ? this.previousLocation : location}>
+        
           {routes.map((route, i) => (
-            <RouteWithSubRoutes key={i} {...route} />
+            RouteWithSubRoutes(route, i)
           ))}
 
           <Route component={NoMatch} />
