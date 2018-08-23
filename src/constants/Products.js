@@ -24,7 +24,7 @@ export const products = [
   {
     id: 3,
     title: 'Product 3',
-    price: 33500,
+    price: 33700,
     image: {
       url: 'http://via.placeholder.com/200x200',
       width: '200',

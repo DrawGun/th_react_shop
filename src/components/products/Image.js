@@ -1,21 +1,23 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
+import { Media } from 'reactstrap';
+
 const Image = ({ url, alt, width, height }) => (
-  <div>
-    <img
+  <Fragment>
+    <Media object
       src={url}
       width={width}
       height={height}
       alt={alt} />
-  </div>
+  </Fragment>
 );
 
 Image.propTypes = {
   url: PropTypes.string,
   alt: PropTypes.string,
   width: PropTypes.string,
-  height: PropTypes.string,
+  height: PropTypes.string
 };
 
 Image.defaultProps = {

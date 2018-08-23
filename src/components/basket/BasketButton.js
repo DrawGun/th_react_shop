@@ -1,16 +1,16 @@
 import React, { Component, Fragment } from 'react';
 
-import CartContext from '../components/CartContext';
-import Button from './elements/Button';
+import CartContext from '../../helpers/CartContext';
+import Button from '../elements/Button';
 
-class Basket extends Component {
+class BasketButton extends Component {
   render() {
     return (
       <CartContext.Consumer>
         {
           card => {
             const title = `Выбрано заказов: ${card.basket.length}`;
-            
+
             return (
               <Button>
                 {title}
@@ -23,4 +23,4 @@ class Basket extends Component {
   }
 }
 
-export default Basket;
+export default BasketButton;
