@@ -6,7 +6,6 @@ const Products = {
   exact: true,
   strict: false,
   path: rootPath(),
-  path: rootPath,
   component: ProductsContainer
 };
 
