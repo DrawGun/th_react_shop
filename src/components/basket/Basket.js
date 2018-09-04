@@ -10,7 +10,6 @@ import { rootPath } from '../../helpers/routes/common';
 
 class Basket extends Component {
   render() {
-    const { modal } = this.props;
     return (
       <CartContext.Consumer>
         {
@@ -39,9 +38,5 @@ class Basket extends Component {
     );
   }
 }
-
-Basket.propTypes = {
-  modal: PropTypes.bool
-};
 
 export default Basket;

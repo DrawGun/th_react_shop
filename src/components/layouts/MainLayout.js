@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 import Header from './Header';
 
-const MainLayout = ({ children }) => (
+const MainLayout = ({ children, match }) => (
   <Fragment>
-    <Header />
+    <Header match={match} />
     { children }
   </Fragment>
 );

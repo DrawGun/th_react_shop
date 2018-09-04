@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import { Route, Switch } from 'react-router-dom';
@@ -6,11 +6,13 @@ import { Route, Switch } from 'react-router-dom';
 import createRoutes from '../../routes';
 const routes = createRoutes();
 
-import { basketPath } from '../../helpers/routes/common';
+import { basketPath, galleryPath } from '../../helpers/routes/common';
+import { productGalleryPath } from '../../helpers/routes/products';
 
 import RouteWithSubRoutes from '../../helpers/routes/RouteWithSubRoutes';
 import MainLayout from './MainLayout';
 import BasketModal from '../basket/BasketModal';
+import GalleryModal from '../gallery/GalleryModal';
 import NoMatch from '../NoMatch';
 
 class AppSwitch extends Component {
@@ -32,7 +34,7 @@ class AppSwitch extends Component {
   }
 
   render() {
-    const { location } = this.props;
+    const { location, match } = this.props;
 
     const isModal = !!(
       location &&
@@ -42,7 +44,7 @@ class AppSwitch extends Component {
     );
 
     return (
-      <MainLayout>
+      <MainLayout match={match}>
         <Switch location={isModal ? this.previousLocation : location}>
         
           {routes.map((route, i) => (
@@ -52,7 +54,15 @@ class AppSwitch extends Component {
           <Route component={NoMatch} />
         </Switch>
 
-        {isModal ? <Route path={basketPath()} component={BasketModal} /> : null}
+        {
+          isModal ? (
+            <Fragment>
+              <Route path={basketPath()} component={BasketModal} exact strict />
+              <Route path={galleryPath()} component={GalleryModal} exact strict /> 
+              <Route path={productGalleryPath()} component={GalleryModal} exact strict /> 
+            </Fragment>
+          ) : null
+        }
       </MainLayout>
     );
   }

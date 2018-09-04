@@ -8,11 +8,11 @@ const Price = ({ price }) => (
 );
 
 Price.propTypes = {
-  price: PropTypes.number
+  price: PropTypes.string
 };
 
 Price.defaultProps = {
-  price: 100500
+  price: '100500'
 };
 
 export default Price;
