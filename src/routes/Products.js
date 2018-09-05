@@ -1,6 +1,6 @@
-import ProductsContainer from '../containers/ProductsContainer';
+import ProductsContainer from '~/src/containers/ProductsContainer';
 
-import { rootPath } from '../helpers/routes/common';
+import { rootPath } from '~/src/helpers/routes/common';
 
 const Products = {
   exact: true,

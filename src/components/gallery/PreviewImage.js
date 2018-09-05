@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { Media } from 'reactstrap';
 
-import { commonUrl } from './../../helpers/routes/api';
+import { commonUrl } from '~/src/helpers/routes/api';
 
 const PreviewImage = ({ path, onClick }) => (
   <Fragment>

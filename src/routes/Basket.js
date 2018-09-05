@@ -1,6 +1,6 @@
-import BasketContainer from '../containers/BasketContainer';
+import BasketContainer from '~/src/containers/BasketContainer';
 
-import { basketPath } from '../helpers/routes/common';
+import { basketPath } from '~/src/helpers/routes/common';
 
 const Basket = {
   exact: true,

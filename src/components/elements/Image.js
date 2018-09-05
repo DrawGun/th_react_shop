@@ -1,13 +1,17 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import { Media, Row } from 'reactstrap';
-import { commonUrl } from './../../helpers/routes/api';
+import { Container, Row, Media } from 'reactstrap';
+import { commonUrl } from '~/src/helpers/routes/api';
 
 const Image = ({ path }) => (
-  <Media object
-    src={commonUrl(path)}
-  />
+  <Container>
+    <Row className='mb-2 mt-5'>
+      <Media object
+        src={commonUrl(path)}
+      />
+    </Row>
+  </Container>
 );
 
 Image.propTypes = {

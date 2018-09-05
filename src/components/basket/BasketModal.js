@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import Modal from './../elements/Modal';
+import Modal from '~/src/components/elements/Modal';
 import Basket from './Basket';
 
 class BasketModal extends Component {

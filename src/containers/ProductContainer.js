@@ -7,10 +7,10 @@ import { isNil } from 'lodash';
 import request from 'superagent';
 import { camelizeKeys } from 'humps';
 
-import { API_V1_PATH, API_PRODUCTS_PATH } from './../helpers/routes/api';
-import JSONAPI from './../helpers/parser';
+import { API_V1_PATH, API_PRODUCTS_PATH } from '~/src/helpers/routes/api';
+import JSONAPI from '~/src/helpers/parser';
 
-import ProductCard from '../components/products/ProductCard';
+import ProductCard from '~/src/components/products/ProductCard';
 
 class ProductContainer extends Component {
   constructor(props) {

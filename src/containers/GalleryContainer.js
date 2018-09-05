@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { Row } from 'reactstrap';
-
 import request from 'superagent';
 import { camelizeKeys } from 'humps';
 
-import { API_V1_PATH, API_PRODUCTS_PATH, API_GALLERY_PATH } from './../helpers/routes/api';
-import JSONAPI from './../helpers/parser';
+import { API_V1_PATH, API_PRODUCTS_PATH, API_GALLERY_PATH } from '~/src/helpers/routes/api';
+import JSONAPI from '~/src/helpers/parser';
 
-import Gallery from './../components/gallery/Gallery';
+import Gallery from '~/src/components/gallery/Gallery';
 
 class GalleryContainer extends Component {
   constructor(props) {
@@ -45,9 +43,7 @@ class GalleryContainer extends Component {
     const { images } = this.state;
 
     return (
-      <Row className='mb-2 mt-5'>
-        <Gallery images={images} />
-      </Row>
+      <Gallery images={images} />
     );
   }
 }

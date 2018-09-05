@@ -3,17 +3,18 @@ import PropTypes from 'prop-types';
 
 import { Route, Switch } from 'react-router-dom';
 
-import createRoutes from '../../routes';
+import createRoutes from '~/src/routes';
+
 const routes = createRoutes();
 
-import { basketPath, galleryPath } from '../../helpers/routes/common';
-import { productGalleryPath } from '../../helpers/routes/products';
+import { basketPath, galleryPath } from '~/src/helpers/routes/common';
+import { productGalleryPath } from '~/src/helpers/routes/products';
 
-import RouteWithSubRoutes from '../../helpers/routes/RouteWithSubRoutes';
+import RouteWithSubRoutes from '~/src/helpers/routes/RouteWithSubRoutes';
 import MainLayout from './MainLayout';
-import BasketModal from '../basket/BasketModal';
-import GalleryModal from '../gallery/GalleryModal';
-import NoMatch from '../NoMatch';
+import BasketModal from '~/src/components/basket/BasketModal';
+import GalleryModal from '~/src/components/gallery/GalleryModal';
+import NoMatch from '~/src/components/NoMatch';
 
 class AppSwitch extends Component {
   constructor(props) {

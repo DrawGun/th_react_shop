@@ -1,6 +1,6 @@
-import GalleryContainer from '../containers/GalleryContainer';
+import GalleryContainer from '~/src/containers/GalleryContainer';
 
-import { galleryPath } from '../helpers/routes/common';
+import { galleryPath } from '~/src/helpers/routes/common';
 
 const Gallery = {
   exact: true,

@@ -7,14 +7,14 @@ import {
   NavLink
 } from 'reactstrap';
 
-import ProductRoute from './../../routes/Product';
+import ProductRoute from '~/src/routes/Product';
 
-import Link from '../../components/elements/Link';
-import BasketButton from '../../components/basket/BasketButton';
-import Button from '../../components/elements/Button';
+import Link from '~/src/components/elements/Link';
+import BasketButton from '~/src/components/basket/BasketButton';
+import Button from '~/src/components/elements/Button';
 
-import { basketPath, contactsPath, galleryPath } from '../../helpers/routes/common';
-import { productGalleryPath } from '../../helpers/routes/products';
+import { basketPath, contactsPath, galleryPath } from '~/src/helpers/routes/common';
+import { productGalleryPath } from '~/src/helpers/routes/products';
 
 class Menu extends Component {
   constructor(props) {

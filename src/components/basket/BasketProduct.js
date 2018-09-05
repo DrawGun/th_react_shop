@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Image from '../products/Image';
-import TextBox from '../products/TextBox';
-import Price from '../products/Price';
+import Image from '~/src/components/products/Image';
+import TextBox from '~/src/components/products/TextBox';
+import Price from '~/src/components/products/Price';
 
 class BasketProduct extends Component {
   constructor(props) {

@@ -1,6 +1,6 @@
-import GalleryContainer from '../containers/GalleryContainer';
+import GalleryContainer from '~/src/containers/GalleryContainer';
 
-import { productGalleryPath } from '../helpers/routes/products';
+import { productGalleryPath } from '~/src/helpers/routes/products';
 
 const ProductGallery = {
   exact: true,

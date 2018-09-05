@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import { isNil } from 'lodash';
-import { Container, Row } from 'reactstrap';
+
 
 import request from 'superagent';
 import { camelizeKeys } from 'humps';
 
-import { API_V1_PATH, API_PRODUCTS_PATH, API_IMAGES_PATH } from './../helpers/routes/api';
-import JSONAPI from './../helpers/parser';
+import { API_V1_PATH, API_PRODUCTS_PATH, API_IMAGES_PATH } from '~/src/helpers/routes/api';
+import JSONAPI from '~/src/helpers/parser';
 
-import Image from './../components/elements/Image';
+import Image from '~/src/components/elements/Image'
 
 class ImageContainer extends Component {
   constructor(props) {
@@ -44,11 +44,7 @@ class ImageContainer extends Component {
     if (isNil(image)) { return null; }
 
     return (
-      <Container>
-        <Row className='mb-2 mt-5'>
-          <Image path={image.mainUrl} />
-        </Row>
-      </Container>
+      <Image path={image.mainUrl} />
     );
   }
 }

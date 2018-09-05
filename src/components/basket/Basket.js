@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 
 import { Redirect } from 'react-router'
 
-import CartContext from '../../helpers/CartContext';
+import CartContext from '~/src/helpers/CartContext';
 import BasketContent from './BasketContent';
 
-import { rootPath } from '../../helpers/routes/common';
+import { rootPath } from '~/src/helpers/routes/common';
 
 class Basket extends Component {
   render() {

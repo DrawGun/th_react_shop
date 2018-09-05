@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import request from 'superagent';
 import { camelizeKeys } from 'humps';
 
-import { API_V1_PATH, API_PRODUCTS_PATH } from './../helpers/routes/api';
-import JSONAPI from './../helpers/parser';
+import { API_V1_PATH, API_PRODUCTS_PATH } from '~/src/helpers/routes/api';
+import JSONAPI from '~/src/helpers/parser';
 
-import Catalog from '../components/products/Catalog';
+import Catalog from '~/src/components/products/Catalog';
 
 class ProductsContainer extends Component {
   constructor(props) {

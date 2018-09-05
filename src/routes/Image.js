@@ -1,6 +1,6 @@
-import ImageContainer from '../containers/ImageContainer';
+import ImageContainer from '~/src/containers/ImageContainer';
 
-import { imagePath } from '../helpers/routes/common';
+import { imagePath } from '~/src/helpers/routes/common';
 
 const Image = {
   exact: true,

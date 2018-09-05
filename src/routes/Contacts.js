@@ -1,6 +1,6 @@
-import ContactsContainer from '../containers/ContactsContainer';
+import ContactsContainer from '~/src/containers/ContactsContainer';
 
-import { contactsPath } from '../helpers/routes/common';
+import { contactsPath } from '~/src/helpers/routes/common';
 
 const Contacts = {
   exact: true,

@@ -3,14 +3,13 @@ import PropTypes from 'prop-types';
 
 import { Container, Row, Media } from 'reactstrap';
 
-import { productsPath } from '../../helpers/routes/products';
+import { productsPath } from '~/src/helpers/routes/products';
 
 import Image from './Image';
 import TextBox from './TextBox';
 import Price from './Price';
 import AddToBasket from './AddToBasket';
-import Link from '../elements/Link';
-import Gallery from './../gallery/Gallery';
+import Link from '~/src/components/elements/Link';
 
 class ProductCard extends Component {
   constructor(props) {
