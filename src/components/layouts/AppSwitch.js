@@ -35,7 +35,7 @@ class AppSwitch extends Component {
   }
 
   render() {
-    const { location, match } = this.props;
+    const { location } = this.props;
 
     const isModal = !!(
       location &&
@@ -45,7 +45,7 @@ class AppSwitch extends Component {
     );
 
     return (
-      <MainLayout match={match}>
+      <MainLayout>
         <Switch location={isModal ? this.previousLocation : location}>
         
           {routes.map((route, i) => (
