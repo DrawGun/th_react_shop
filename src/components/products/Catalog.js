@@ -1,10 +1,10 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import { Container, Alert } from 'reactstrap';
+import { Container, Alert, Row } from 'reactstrap';
+import { map } from 'lodash';
 
 import ProductCard from './ProductCard';
-import { map } from 'lodash';
 
 class Catalog extends Component {
   constructor(props) {
@@ -12,7 +12,7 @@ class Catalog extends Component {
   }
 
   render() {
-    const { products, message } = this.props;
+    const { products, message, images } = this.props;
 
     return (
       <Fragment>

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Image from '../products/Image';
-import TextBox from '../products/TextBox';
-import Price from '../products/Price';
+import Image from '~/src/components/products/Image';
+import TextBox from '~/src/components/products/TextBox';
+import Price from '~/src/components/products/Price';
 
 class BasketProduct extends Component {
   constructor(props) {
@@ -32,20 +32,20 @@ class BasketProduct extends Component {
 }
 
 BasketProduct.propTypes = {
-  id: PropTypes.number,
+  id: PropTypes.string,
   title: PropTypes.string,
-  price: PropTypes.number,
+  descriprion: PropTypes.string,
+  price: PropTypes.string,
+  priceCurrency: PropTypes.string,
   image: PropTypes.shape(Image.propTypes)
 };
 
 BasketProduct.defaultProps = {
-  id: 1,
+  id: '1',
   title: 'Product 1',
-  price: 11500,
-  url: 'http://via.placeholder.com/200x200',
-  width: '200',
-  height: '200',
-  alt: 'Что-то 1',
+  descriprion: 'This is product 1',
+  price: '11500',
+  priceCurrency: 'RUB',
   image: Image.defaultProps
 };
 

@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 import { ButtonGroup } from 'reactstrap';
 
-import CartContext from '../../helpers/CartContext';
+import CartContext from '~/src/helpers/CartContext';
 
-import Button from '../elements/Button';
+import Button from '~/src/components/elements/Button';
 
 class AddToBasket extends Component {
   constructor(props) {

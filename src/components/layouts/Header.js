@@ -10,9 +10,9 @@ import {
   NavLink
 } from 'reactstrap';
 
-import { rootPath } from '../../helpers/routes/common';
+import { rootPath } from '~/src/helpers/routes/common';
 
-import Link from '../../components/elements/Link';
+import Link from '~/src/components/elements/Link';
 
 import Menu from './Menu';
 

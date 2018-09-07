@@ -2,22 +2,48 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import { Container } from 'reactstrap';
-import { find, toInteger } from 'lodash';
+import { isNil } from 'lodash';
 
-import { products } from '../constants/Products';
-import ProductCard from '../components/products/ProductCard';
+import request from 'superagent';
+import { camelizeKeys } from 'humps';
+
+import { API_V1_PATH, API_PRODUCTS_PATH } from '~/src/helpers/routes/api';
+import JSONAPI from '~/src/helpers/parser';
+
+import ProductCard from '~/src/components/products/ProductCard';
 
 class ProductContainer extends Component {
-  // Думаю, что в будущем придется расширять контейнерный компонент,
-  // поэтому пока только подготовил скелет.
   constructor(props) {
     super(props);
+
+    this.state = { product: null }
+  }
+
+  componentDidMount() {
+    this.fetchProduct();
+  }
+
+  fetchProduct() {
+    const { id } = this.props.match.params;
+    const productUrl = `${API_V1_PATH}${API_PRODUCTS_PATH}/${id}`;
+
+    request
+      .get(productUrl)
+      .end((err, { body }) => {
+        const { data } = JSONAPI.parse(body);
+        
+        if (!isNil(data)) {
+          this.setState({
+            product: camelizeKeys(data)
+          })
+        }
+      });
   }
 
   render() {
-    const { id } = this.props.match.params;
-    const product = find(products, (product) => product.id === toInteger(id));
-
+    const { product } = this.state;
+    if (isNil(product)) { return null; }
+    
     return (
       <Container>
         <ProductCard {...product} isShowProductPage />

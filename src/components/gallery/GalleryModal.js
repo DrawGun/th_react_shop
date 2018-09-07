@@ -1,14 +1,22 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
+import { withRouter } from 'react-router'
+
 import Modal from '~/src/components/elements/Modal';
-import Basket from './Basket';
+import GalleryContainer from '~/src/containers/GalleryContainer';
 
 class BasketModal extends Component {
+  constructor(props) {
+    super(props);
+  }
+  
   render() {
+    const GalleryContainerWithRouter = withRouter(GalleryContainer)
+
     return (
       <Modal {...this.props}>
-        <Basket />
+        <GalleryContainerWithRouter />
       </Modal>
     );
   }

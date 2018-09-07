@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { Jumbotron, Button, Container } from 'reactstrap';
 
-import { rootPath } from '../helpers/routes/common';
+import { rootPath } from '~/src/helpers/routes/common';
 import Link from './elements/Link';
 
 const NoMatch = () => (

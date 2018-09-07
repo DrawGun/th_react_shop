@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 
 import { times, constant } from 'lodash';
 
-import CartContext from '../helpers/CartContext';
-
-import Catalog from '../components/products/Catalog';
+import CartContext from '~/src/helpers/CartContext';
 
 class CartContainer extends Component {
   constructor(props) {

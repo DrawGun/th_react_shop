@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
-import Basket from '../components/basket/Basket';
+import Basket from '~/src/components/basket/Basket';
 
 const BasketContainer = () => <Basket />
 

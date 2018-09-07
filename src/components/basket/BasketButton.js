@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 
-import CartContext from '../../helpers/CartContext';
-import Button from '../elements/Button';
+import CartContext from '~/src/helpers/CartContext';
+import Button from '~/src/components/elements/Button';
 
 class BasketButton extends Component {
   render() {

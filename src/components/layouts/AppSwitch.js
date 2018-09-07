@@ -1,17 +1,20 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import { Route, Switch } from 'react-router-dom';
 
-import createRoutes from '../../routes';
+import createRoutes from '~/src/routes';
+
 const routes = createRoutes();
 
-import { basketPath } from '../../helpers/routes/common';
+import { basketPath, galleryPath } from '~/src/helpers/routes/common';
+import { productGalleryPath } from '~/src/helpers/routes/products';
 
-import RouteWithSubRoutes from '../../helpers/routes/RouteWithSubRoutes';
+import RouteWithSubRoutes from '~/src/helpers/routes/RouteWithSubRoutes';
 import MainLayout from './MainLayout';
-import BasketModal from '../basket/BasketModal';
-import NoMatch from '../NoMatch';
+import BasketModal from '~/src/components/basket/BasketModal';
+import GalleryModal from '~/src/components/gallery/GalleryModal';
+import NoMatch from '~/src/components/NoMatch';
 
 class AppSwitch extends Component {
   constructor(props) {
@@ -52,7 +55,15 @@ class AppSwitch extends Component {
           <Route component={NoMatch} />
         </Switch>
 
-        {isModal ? <Route path={basketPath()} component={BasketModal} /> : null}
+        {
+          isModal ? (
+            <Fragment>
+              <Route path={basketPath()} component={BasketModal} exact strict />
+              <Route path={galleryPath()} component={GalleryModal} exact strict /> 
+              <Route path={productGalleryPath()} component={GalleryModal} exact strict /> 
+            </Fragment>
+          ) : null
+        }
       </MainLayout>
     );
   }
