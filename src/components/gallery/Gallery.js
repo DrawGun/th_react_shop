@@ -9,12 +9,21 @@ import { imagePath } from '~/src/helpers/routes/common';
 import Link from '~/src/components/elements/Link';
 import Button from '~/src/components/elements/Button';
 import PreviewImage from './PreviewImage';
+import timer from '~/src/decorators/timer';
 
 class Gallery extends Component {
   constructor(props) {
     super(props);
 
     this.state = { activeIndex: 0 }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const step = 3;
+    const { secondsPassed } = this.props;
+    if (secondsPassed % step === 0) {
+      this.goNext();
+    }
   }
 
   goBack() {
@@ -98,12 +107,14 @@ class Gallery extends Component {
 
 Gallery.propTypes = {
   images: PropTypes.array,
-  cardWidth: PropTypes.string
+  cardWidth: PropTypes.string,
+  secondsPassed: PropTypes.number
 };
 
 Gallery.defaultProps = {
   images: [],
-  cardWidth: "100%"
+  cardWidth: "100%",
+  secondsPassed: 0
 };
 
-export default Gallery;
+export default timer(Gallery);
