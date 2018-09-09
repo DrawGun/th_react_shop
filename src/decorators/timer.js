@@ -20,6 +20,7 @@ const timer = WrappedComponent =>
 
     unsubscribe() {
       this.startTime = null;
+      clearTimeout(this.timeoutId);
       this.timeoutId = null;
     }
 

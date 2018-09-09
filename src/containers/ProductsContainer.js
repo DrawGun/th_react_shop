@@ -5,7 +5,7 @@ import request from 'superagent';
 import { camelizeKeys } from 'humps';
 
 import { API_V1_PATH, API_PRODUCTS_PATH } from '~/src/helpers/routes/api';
-import JSONAPI from '~/src/helpers/parser';
+import jsonapi from 'jsonapi-parse';
 
 import Catalog from '~/src/components/products/Catalog';
 
@@ -26,7 +26,7 @@ class ProductsContainer extends Component {
     request
       .get(producstUrl)
       .end((err, { body }) => {
-        const { data } = JSONAPI.parse(body);
+        const { data } = jsonapi.parse(body);
         
         this.setState({
           products: camelizeKeys(data)

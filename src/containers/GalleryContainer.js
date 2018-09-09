@@ -5,7 +5,7 @@ import request from 'superagent';
 import { camelizeKeys } from 'humps';
 
 import { API_V1_PATH, API_PRODUCTS_PATH, API_GALLERY_PATH } from '~/src/helpers/routes/api';
-import JSONAPI from '~/src/helpers/parser';
+import jsonapi from 'jsonapi-parse';
 
 import Gallery from '~/src/components/gallery/Gallery';
 
@@ -31,7 +31,7 @@ class GalleryContainer extends Component {
     request
       .get(imagesUrl)
       .end((err, { body }) => {
-        const { data } = JSONAPI.parse(body);
+        const { data } = jsonapi.parse(body);
 
         this.setState({
           images: camelizeKeys(data)

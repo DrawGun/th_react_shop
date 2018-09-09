@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 import { Container } from 'reactstrap';
 import { isNil } from 'lodash';
 
+import jsonapi from 'jsonapi-parse';
 import request from 'superagent';
 import { camelizeKeys } from 'humps';
 
 import { API_V1_PATH, API_PRODUCTS_PATH } from '~/src/helpers/routes/api';
-import JSONAPI from '~/src/helpers/parser';
 
 import ProductCard from '~/src/components/products/ProductCard';
 
@@ -30,8 +30,8 @@ class ProductContainer extends Component {
     request
       .get(productUrl)
       .end((err, { body }) => {
-        const { data } = JSONAPI.parse(body);
-        
+        const { data } = jsonapi.parse(body);
+
         if (!isNil(data)) {
           this.setState({
             product: camelizeKeys(data)

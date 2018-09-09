@@ -8,7 +8,7 @@ import request from 'superagent';
 import { camelizeKeys } from 'humps';
 
 import { API_V1_PATH, API_PRODUCTS_PATH, API_IMAGES_PATH } from '~/src/helpers/routes/api';
-import JSONAPI from '~/src/helpers/parser';
+import jsonapi from 'jsonapi-parse';
 
 import Image from '~/src/components/elements/Image'
 
@@ -31,7 +31,7 @@ class ImageContainer extends Component {
     request
       .get(imagesUrl)
       .end((err, { body }) => {
-        const { data } = JSONAPI.parse(body);
+        const { data } = jsonapi.parse(body);
 
         this.setState({
           image: camelizeKeys(data)
