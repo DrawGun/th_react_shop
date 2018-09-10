@@ -17,8 +17,9 @@ class ProductCard extends Component {
   }
 
   render() {
-    const { id, image, title, description, price, isShowProductPage, images } = this.props;
-    
+    const { product, pushToBasket, isShowProductPage } = this.props;
+    const { id, image, title, description, price } = product;
+
     return (
       <Fragment>
         <Row className='mb-2'>
@@ -41,7 +42,7 @@ class ProductCard extends Component {
 
               <Container className='mt-3'>
                 <Row>
-                  <AddToBasket product={this.props} />
+                  <AddToBasket product={product} pushToBasket={pushToBasket} />
                 </Row>
               </Container>
 

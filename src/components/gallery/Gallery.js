@@ -18,6 +18,17 @@ class Gallery extends Component {
     this.state = { activeIndex: 0 }
   }
 
+  componentDidMount() {
+    const { fetchImages, fetchImagesById } = this.props;
+    const { id } = this.props.match.params;
+    
+    if (id) {
+      fetchImagesById(id);
+    } else {
+      fetchImages()
+    }
+  }
+
   componentWillReceiveProps(nextProps) {
     const step = 3;
     const { secondsPassed } = this.props;
@@ -27,7 +38,7 @@ class Gallery extends Component {
   }
 
   goBack() {
-    const { images } = this.props;
+    const { items: images } = this.props;
     const imagesLength = images.length;
     let { activeIndex } = this.state;
     
@@ -41,7 +52,7 @@ class Gallery extends Component {
   }
 
   goNext() {
-    const { images } = this.props;
+    const { items: images } = this.props;
     const imagesLength = images.length;
     let { activeIndex } = this.state;
 
@@ -59,7 +70,7 @@ class Gallery extends Component {
   }
 
   render() {
-    const { images, cardWidth } = this.props;
+    const { items: images, cardWidth } = this.props;
     
     if (isEmpty(images)) { return null; }
     

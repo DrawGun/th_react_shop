@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 
 import { ButtonGroup } from 'reactstrap';
 
-import CartContext from '~/src/helpers/CartContext';
-
 import Button from '~/src/components/elements/Button';
 
 class AddToBasket extends Component {
@@ -26,29 +24,21 @@ class AddToBasket extends Component {
   }
 
   render() {
-    const { product } = this.props;
+    const { product, pushToBasket } = this.props;
     const { count } = this.state;
 
     return (
-      <CartContext.Consumer>
-        {
-          card => {
-            return (
-              <ButtonGroup size='lg'>
-                <Button onClick={() => this.changeCount('decrement')}>
-                  {'-'}
-                </Button>
-                <Button onClick={() => card.addToBasket(product, count)}>
-                  {`Добавить в корзину: ${count}`}
-                </Button>
-                <Button onClick={() => this.changeCount('increment')}>
-                  {'+'}
-                </Button>
-              </ButtonGroup>
-            )
-          }
-        }
-      </CartContext.Consumer>
+      <ButtonGroup size='lg'>
+        <Button onClick={() => this.changeCount('decrement')}>
+          {'-'}
+        </Button>
+        <Button onClick={() => pushToBasket(product, count)}>
+          {`Добавить в корзину: ${count}`}
+        </Button>
+        <Button onClick={() => this.changeCount('increment')}>
+          {'+'}
+        </Button>
+      </ButtonGroup>
     );
   }
 }

@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
+
+import store from '~/src/store';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import CartContainer from './containers/CartContainer';
 import AppSwitch from './components/layouts/AppSwitch';
 
 class App extends Component {
@@ -13,11 +15,11 @@ class App extends Component {
 
   render() {
     return (
-      <CartContainer>
+      <Provider store={store}>
         <Router>
           <Route component={AppSwitch} />
         </Router>
-      </CartContainer>
+      </Provider>
     );
   }
 }
