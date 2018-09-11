@@ -2,8 +2,8 @@ import { assign, times, constant } from 'lodash';
 
 import {
   PUSH_TO_BASKET,
-  SET_MASSAGE,
-  CLEAR_MASSAGE
+  SET_MESSAGE,
+  CLEAR_MESSAGE
 } from '~src/constants/actionTypes';
 
 const initialState = {
@@ -18,9 +18,9 @@ const initialState = {
       const entries = [...state.entries, ...products];
 
       return assign({}, state, { entries });
-    case SET_MASSAGE:
+    case SET_MESSAGE:
       return assign({}, state, { message: action.message });
-    case CLEAR_MASSAGE:
+    case CLEAR_MESSAGE:
       return assign({}, state, { message: null });
     default:
       return state;

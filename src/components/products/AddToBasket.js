@@ -24,7 +24,7 @@ class AddToBasket extends Component {
   }
 
   render() {
-    const { product, pushToBasket } = this.props;
+    const { item: product, pushToBasket } = this.props;
     const { count } = this.state;
 
     return (

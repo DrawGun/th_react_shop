@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 
 import { fetchProduct } from '~/src/actions/Product';
-import { pushToBasket } from '~/src/actions/Basket';
 
 import Product from '~/src/components/products/Product';
 
@@ -12,8 +11,7 @@ const stateToProps = (state) => ({
 });
 
 const actionsToProps = (dispatch) => ({
-  fetchProduct: (id) => dispatch(fetchProduct(id)),
-  pushToBasket: (product, count) => dispatch(pushToBasket(product, count))
+  fetchProduct: (id) => dispatch(fetchProduct(id))
 });
 
 export default connect(stateToProps, actionsToProps)(Product);

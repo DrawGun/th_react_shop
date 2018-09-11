@@ -7,10 +7,10 @@ import {
   FETCH_PRODUCTS_ERROR
 } from '~/src/constants/actionTypes';
 
-import { API_V1_PATH, API_PRODUCTS_PATH } from '~/src/helpers/routes/api';
+import { API_V1_PATH } from '~/src/helpers/routes/api';
 import jsonapi from 'jsonapi-parse';
 
-const PRODUCTS_URL = `${API_V1_PATH}${API_PRODUCTS_PATH}`;
+const PRODUCTS_URL = `${API_V1_PATH}/products`;
 
 const requestProducts = () => ({
   type: FETCH_PRODUCTS_REQUEST
@@ -20,7 +20,7 @@ const errorProducts = () => ({
   type: FETCH_PRODUCTS_ERROR
 });
 
-const reciveProducts = (response) => ({
+const receiveProducts = (response) => ({
   type: FETCH_PRODUCTS_SUCCESS,
   response
 });
@@ -37,7 +37,7 @@ export function fetchProducts() {
 
         err ?
           dispatch(errorProducts()) :
-          dispatch(reciveProducts(products));
+          dispatch(receiveProducts(products));
       });
   };
 }

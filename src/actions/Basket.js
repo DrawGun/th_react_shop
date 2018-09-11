@@ -1,7 +1,7 @@
 import {
   PUSH_TO_BASKET,
-  SET_MASSAGE,
-  CLEAR_MASSAGE
+  SET_MESSAGE,
+  CLEAR_MESSAGE
 } from '~/src/constants/actionTypes';
 
 export const pushToBasket = (product, count) => ({
@@ -11,10 +11,10 @@ export const pushToBasket = (product, count) => ({
 });
 
 export const setMessage = (message) => ({
-  type: SET_MASSAGE,
+  type: SET_MESSAGE,
   message
 });
 
 export const clearMessage = () => ({
-  type: CLEAR_MASSAGE
+  type: CLEAR_MESSAGE
 });

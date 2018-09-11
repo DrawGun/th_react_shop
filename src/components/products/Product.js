@@ -22,7 +22,7 @@ class Product extends Component {
   }
 
   render() {
-    const { item: product, pushToBasket } = this.props;
+    const { item: product } = this.props;
 
     if (isNil(product)) { return null; }
 
@@ -30,7 +30,6 @@ class Product extends Component {
       <Container>
         <ProductCard 
           product={product} 
-          pushToBasket={pushToBasket} 
           isShowProductPage 
         />
       </Container>
@@ -42,7 +41,6 @@ Product.propTypes = {
   isFetching: PropTypes.bool,
   error: PropTypes.bool,
   fetchProduct: PropTypes.func,
-  pushToBasket: PropTypes.func,
   match: PropTypes.shape({
     params: PropTypes.shape({
       id: PropTypes.string.string

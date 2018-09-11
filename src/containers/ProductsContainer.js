@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import { fetchProducts } from '~/src/actions/Products';
-import { clearMessage, pushToBasket } from '~/src/actions/Basket';
+import { clearMessage } from '~/src/actions/Basket';
 
 import Catalog from '~/src/components/products/Catalog';
 
@@ -14,8 +14,7 @@ const stateToProps = (state) => ({
 
 const actionsToProps = (dispatch) => ({
   fetchProducts: () => dispatch(fetchProducts()),
-  clearMessage: () => dispatch(clearMessage()),
-  pushToBasket: (product, count) => dispatch(pushToBasket(product, count))
+  clearMessage: () => dispatch(clearMessage())
 });
 
 export default connect(stateToProps, actionsToProps)(Catalog);

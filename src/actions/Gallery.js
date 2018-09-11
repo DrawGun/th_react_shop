@@ -7,7 +7,7 @@ import {
   FETCH_IMAGES_ERROR
 } from '~/src/constants/actionTypes';
 
-import { API_V1_PATH, API_PRODUCTS_PATH, API_GALLERY_PATH } from '~/src/helpers/routes/api';
+import { API_V1_PATH } from '~/src/helpers/routes/api';
 import jsonapi from 'jsonapi-parse';
 
 const requestImages = () => ({
@@ -18,7 +18,7 @@ const errorImages = () => ({
   type: FETCH_IMAGES_ERROR
 });
 
-const reciveImages = (response) => ({
+const receiveImages = (response) => ({
   type: FETCH_IMAGES_SUCCESS,
   response
 });
@@ -27,7 +27,7 @@ export function fetchImages() {
   return (dispatch) => {
     dispatch(requestImages());
 
-    const imagesUrl = `${API_V1_PATH}${API_GALLERY_PATH}`;
+    const imagesUrl = `${API_V1_PATH}/gallery`;
     return request
       .get(imagesUrl)
       .end((err, { body }) => {
@@ -36,7 +36,7 @@ export function fetchImages() {
 
         err ?
           dispatch(errorImages()) :
-          dispatch(reciveImages(images));
+          dispatch(receiveImages(images));
       });
   };
 }
@@ -45,7 +45,7 @@ export function fetchImagesById(id) {
   return (dispatch) => {
     dispatch(requestImages());
 
-    const imagesUrl = `${API_V1_PATH}${API_PRODUCTS_PATH}/${id}${API_GALLERY_PATH}`;
+    const imagesUrl = `${API_V1_PATH}/products/${id}/gallery`;
     return request
       .get(imagesUrl)
       .end((err, { body }) => {
@@ -54,7 +54,7 @@ export function fetchImagesById(id) {
 
         err ?
           dispatch(errorImages()) :
-          dispatch(reciveImages(images));
+          dispatch(receiveImages(images));
       });
   };
 }

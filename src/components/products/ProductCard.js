@@ -8,7 +8,7 @@ import { productsPath } from '~/src/helpers/routes/products';
 import Image from './Image';
 import TextBox from './TextBox';
 import Price from './Price';
-import AddToBasket from './AddToBasket';
+import AddToBasketContainer from '~/src/containers/AddToBasketContainer';
 import Link from '~/src/components/elements/Link';
 
 class ProductCard extends Component {
@@ -17,7 +17,7 @@ class ProductCard extends Component {
   }
 
   render() {
-    const { product, pushToBasket, isShowProductPage } = this.props;
+    const { product, isShowProductPage } = this.props;
     const { id, image, title, description, price } = product;
 
     return (
@@ -42,7 +42,7 @@ class ProductCard extends Component {
 
               <Container className='mt-3'>
                 <Row>
-                  <AddToBasket product={product} pushToBasket={pushToBasket} />
+                  <AddToBasketContainer productId={id} />
                 </Row>
               </Container>
 
