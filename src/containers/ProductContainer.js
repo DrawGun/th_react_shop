@@ -1,63 +1,17 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-import { Container } from 'reactstrap';
-import { isNil } from 'lodash';
+import { fetchProduct } from '~/src/actions/Product';
 
-import request from 'superagent';
-import { camelizeKeys } from 'humps';
+import Product from '~/src/components/products/Product';
 
-import { API_V1_PATH, API_PRODUCTS_PATH } from '~/src/helpers/routes/api';
-import JSONAPI from '~/src/helpers/parser';
+const stateToProps = (state) => ({
+  item: state.product.entry,
+  isFetching: state.product.isFetching,
+  error: state.product.error
+});
 
-import ProductCard from '~/src/components/products/ProductCard';
+const actionsToProps = (dispatch) => ({
+  fetchProduct: (id) => dispatch(fetchProduct(id))
+});
 
-class ProductContainer extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = { product: null }
-  }
-
-  componentDidMount() {
-    this.fetchProduct();
-  }
-
-  fetchProduct() {
-    const { id } = this.props.match.params;
-    const productUrl = `${API_V1_PATH}${API_PRODUCTS_PATH}/${id}`;
-
-    request
-      .get(productUrl)
-      .end((err, { body }) => {
-        const { data } = JSONAPI.parse(body);
-        
-        if (!isNil(data)) {
-          this.setState({
-            product: camelizeKeys(data)
-          })
-        }
-      });
-  }
-
-  render() {
-    const { product } = this.state;
-    if (isNil(product)) { return null; }
-    
-    return (
-      <Container>
-        <ProductCard {...product} isShowProductPage />
-      </Container>
-    );
-  }
-}
-
-ProductContainer.propTypes = {
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      id: PropTypes.string.string,
-    }),
-  }),
-};
-
-export default ProductContainer;
+export default connect(stateToProps, actionsToProps)(Product);

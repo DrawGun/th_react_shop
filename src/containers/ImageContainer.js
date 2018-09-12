@@ -1,60 +1,17 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-import { isNil } from 'lodash';
+import { fetchImage } from '~/src/actions/Image';
 
+import Image from '~/src/components/gallery/Image'
 
-import request from 'superagent';
-import { camelizeKeys } from 'humps';
+const stateToProps = (state) => ({
+  item: state.image.entry,
+  isFetching: state.image.isFetching,
+  error: state.image.error
+});
 
-import { API_V1_PATH, API_PRODUCTS_PATH, API_IMAGES_PATH } from '~/src/helpers/routes/api';
-import JSONAPI from '~/src/helpers/parser';
+const actionsToProps = (dispatch) => ({
+  fetchImage: (id) => dispatch(fetchImage(id))
+});
 
-import Image from '~/src/components/elements/Image'
-
-class ImageContainer extends Component {
-  constructor(props) {
-    super(props);
-    
-    this.state = { image: null };
-  }
-
-  componentDidMount() {
-    this.fetchImage();
-  }
-
-  fetchImage() {
-    const { id } = this.props.match.params;
-
-    const imagesUrl = `${API_V1_PATH}${API_IMAGES_PATH}/${id}`;
-
-    request
-      .get(imagesUrl)
-      .end((err, { body }) => {
-        const { data } = JSONAPI.parse(body);
-
-        this.setState({
-          image: camelizeKeys(data)
-        })
-      });
-  }
-
-  render() {
-    const { image } = this.state;
-    if (isNil(image)) { return null; }
-
-    return (
-      <Image path={image.mainUrl} />
-    );
-  }
-}
-
-ImageContainer.propTypes = {
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      id: PropTypes.string.string,
-    }),
-  }),
-};
-
-export default ImageContainer;
+export default connect(stateToProps, actionsToProps)(Image);

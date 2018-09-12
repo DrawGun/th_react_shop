@@ -2,13 +2,13 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import Modal from '~/src/components/elements/Modal';
-import Basket from './Basket';
+import BasketContainer from '~/src/containers/BasketContainer';
 
 class BasketModal extends Component {
   render() {
     return (
       <Modal {...this.props}>
-        <Basket />
+        <BasketContainer />
       </Modal>
     );
   }

@@ -9,6 +9,7 @@ import { imagePath } from '~/src/helpers/routes/common';
 import Link from '~/src/components/elements/Link';
 import Button from '~/src/components/elements/Button';
 import PreviewImage from './PreviewImage';
+import timer from '~/src/decorators/timer';
 
 class Gallery extends Component {
   constructor(props) {
@@ -17,8 +18,27 @@ class Gallery extends Component {
     this.state = { activeIndex: 0 }
   }
 
+  componentDidMount() {
+    const { fetchImages, fetchImagesById } = this.props;
+    const { id } = this.props.match.params;
+    
+    if (id) {
+      fetchImagesById(id);
+    } else {
+      fetchImages()
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const step = 3;
+    const { secondsPassed } = this.props;
+    if (secondsPassed % step === 0) {
+      this.goNext();
+    }
+  }
+
   goBack() {
-    const { images } = this.props;
+    const { items: images } = this.props;
     const imagesLength = images.length;
     let { activeIndex } = this.state;
     
@@ -32,7 +52,7 @@ class Gallery extends Component {
   }
 
   goNext() {
-    const { images } = this.props;
+    const { items: images } = this.props;
     const imagesLength = images.length;
     let { activeIndex } = this.state;
 
@@ -50,7 +70,7 @@ class Gallery extends Component {
   }
 
   render() {
-    const { images, cardWidth } = this.props;
+    const { items: images, cardWidth } = this.props;
     
     if (isEmpty(images)) { return null; }
     
@@ -98,12 +118,14 @@ class Gallery extends Component {
 
 Gallery.propTypes = {
   images: PropTypes.array,
-  cardWidth: PropTypes.string
+  cardWidth: PropTypes.string,
+  secondsPassed: PropTypes.number
 };
 
 Gallery.defaultProps = {
   images: [],
-  cardWidth: "100%"
+  cardWidth: "100%",
+  secondsPassed: 0
 };
 
-export default Gallery;
+export default timer(Gallery);
