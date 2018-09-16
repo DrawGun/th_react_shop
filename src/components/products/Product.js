@@ -6,6 +6,7 @@ import { isNil } from 'lodash';
 import { Container } from 'reactstrap';
 
 import ProductCard from './ProductCard';
+import renderSpinner from '~/src/helpers/Spinner';
 
 class Product extends Component {
   constructor(props) {
@@ -21,17 +22,24 @@ class Product extends Component {
     }
   }
 
-  render() {
+  renderProductCard() {
     const { item: product } = this.props;
-
-    if (isNil(product)) { return null; }
+    if (isNil(product)) return null;
 
     return (
+      <ProductCard 
+        product={product} 
+        isShowProductPage 
+      />
+    );
+  }
+
+  render() {
+    const { isFetching } = this.props;
+    
+    return (
       <Container>
-        <ProductCard 
-          product={product} 
-          isShowProductPage 
-        />
+        { isFetching ? renderSpinner() : this.renderProductCard() }
       </Container>
     );
   }

@@ -16,7 +16,7 @@ class BasketModal extends Component {
 
     return (
       <Modal {...this.props}>
-        <GalleryContainerWithRouter />
+        <GalleryContainerWithRouter isModal />
       </Modal>
     );
   }

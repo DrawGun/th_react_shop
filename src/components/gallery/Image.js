@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
 import { isNil } from 'lodash';
 
 import ImageEl from '~/src/components/elements/Image'
+import renderSpinner from '~/src/helpers/Spinner';
 
 class Image extends Component {
   constructor(props) {
@@ -18,13 +19,23 @@ class Image extends Component {
     }
   }
 
-  render() {
+  renderImage() {
     const { item: image } = this.props;
-    
-    if (isNil(image)) { return null; }
+
+    if (isNil(image)) return null;
 
     return (
       <ImageEl path={image.mainUrl} />
+    );
+  }
+
+  render() {
+    const { isFetching } = this.props;
+
+    return (
+      <Fragment>
+        { isFetching ? renderSpinner() : this.renderImage() }
+      </Fragment>
     );
   }
 }
