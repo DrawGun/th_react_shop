@@ -5,6 +5,7 @@ import { Container, Alert, Row } from 'reactstrap';
 import { map, isNull } from 'lodash';
 
 import ProductCard from './ProductCard';
+import PaginationContainer from '~/src/containers/PaginationContainer';
 import renderSpinner from '~/src/helpers/Spinner';
 
 class Catalog extends Component {
@@ -18,7 +19,7 @@ class Catalog extends Component {
     const { fetchProducts, message, items } = this.props;
 
     if (!items.length) {
-      fetchProducts();
+      fetchProducts({});
     }
   }
 
@@ -40,6 +41,8 @@ class Catalog extends Component {
             )
           )
         }
+
+        <PaginationContainer />
       </Fragment>
     );
   }

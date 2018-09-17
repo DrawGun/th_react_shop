@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { Button, Modal as ReactstrapModal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
-class Modal extends React.Component {
+class Modal extends Component {
   constructor(props) {
     super(props);
 

@@ -8,22 +8,19 @@ import {
 
 const initialState = {
   isFetching: false,
-  error: false,
+  isError: false,
+  error: null,
   entry: null
 };
 
  export default function(state = initialState, action) {
   switch (action.type) {
     case FETCH_PRODUCT_REQUEST:
-      return assign({}, state, { isFetching: true });
+      return assign({}, initialState, { isFetching: true });
     case FETCH_PRODUCT_ERROR:
-      return assign({}, state, { error: true, isFetching: false });
+      return assign({}, initialState, { isError: true, error: action.error });
     case FETCH_PRODUCT_SUCCESS:
-      return assign({}, state, { 
-        entry: action.response, 
-        isFetching: false, 
-        error: false 
-      });
+      return assign({}, initialState, { entry: action.response.body });
     default:
       return state;
   }

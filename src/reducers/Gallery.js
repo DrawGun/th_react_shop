@@ -8,21 +8,19 @@ import {
 
 const initialState = {
   isFetching: false,
-  error: false,
+  isError: false,
+  error: null,
   entries: []
 };
 
  export default function(state = initialState, action) {
   switch (action.type) {
     case FETCH_IMAGES_REQUEST:
-      return assign({}, state, { isFetching: true });
+      return assign({}, initialState, { isFetching: true });
     case FETCH_IMAGES_ERROR:
-      return assign({}, state, { error: true });
+      return assign({}, initialState, { isError: true, error: action.error });
     case FETCH_IMAGES_SUCCESS:
-      return assign({}, state, {
-        entries: action.response,
-        isFetching: false
-      });
+      return assign({}, initialState, { entries: action.response.body });
     default:
       return state;
   }

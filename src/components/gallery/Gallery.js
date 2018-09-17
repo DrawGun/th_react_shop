@@ -90,7 +90,7 @@ class Gallery extends Component {
         <Link to={imagePath(id)}>
           <CardImg top src={commonUrl(mainUrl)} width={cardWidth}/>
         </Link>
-        <CardBody className="mx-auto">
+        <CardBody className='mx-auto'>
           <ul className='list-inline'>
             <li className='list-inline-item'>
               <Button onClick={() => this.goBack()}>
@@ -140,7 +140,7 @@ Gallery.propTypes = {
 
 Gallery.defaultProps = {
   images: [],
-  cardWidth: "100%",
+  cardWidth: '100%',
   secondsPassed: 0
 };
 
