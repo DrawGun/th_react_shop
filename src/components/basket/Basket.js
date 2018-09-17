@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import PropTypes from 'prop-types';
 
 import { Redirect } from 'react-router'
 
@@ -9,14 +8,22 @@ import { rootPath } from '~/src/helpers/routes/common';
 
 class Basket extends Component {
   componentDidMount() {
-    const { items: products, setMessage } = this.props;
+    this.checkProducts(this.props);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.checkProducts(nextProps);
+  }
+
+  checkProducts(props) {
+    const { entries: products, setMessage } = props;
     if (products.length === 0) {
       setMessage("В корзине ничего нет");
     }
   }
 
   render() {
-    const { items: products } = this.props;
+    const { entries: products } = this.props;
     return (
       <Fragment>
         {

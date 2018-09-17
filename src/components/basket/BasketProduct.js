@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import Button from '~/src/components/elements/Button';
 import Image from '~/src/components/products/Image';
 import TextBox from '~/src/components/products/TextBox';
 import Price from '~/src/components/products/Price';
@@ -11,7 +12,8 @@ class BasketProduct extends Component {
   }
 
   render() {
-    const { id, image, title, price } = this.props;
+    const { product, deleteFromBasket } = this.props;
+    const { id, image, title, price } = product;
 
     return (
       <tr>
@@ -25,6 +27,11 @@ class BasketProduct extends Component {
         </td>
         <td>
           <Price price={price} />
+        </td>
+        <td>
+          <Button onClick={() => deleteFromBasket(product)}>
+            {'-'}
+          </Button>
         </td>
       </tr>
     )

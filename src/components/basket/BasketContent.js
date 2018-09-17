@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Container } from 'reactstrap';
 import { map } from 'lodash';
 
-import BasketProduct from './BasketProduct';
+import BasketProductContainer from '~/src/containers/BasketProductContainer';
 
 class BasketContent extends Component {
   constructor(props) {
@@ -22,6 +22,7 @@ class BasketContent extends Component {
               <th scope="col">#</th>
               <th scope="col">Название</th>
               <th scope="col">Цена</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -29,7 +30,7 @@ class BasketContent extends Component {
               map(
                 products,
                 (product, index) => (
-                  <BasketProduct key={`${product.id}-${index}`} {...product} />
+                  <BasketProductContainer key={`${product.id}-${index}`} product={product} />
                 )
               )
             }
