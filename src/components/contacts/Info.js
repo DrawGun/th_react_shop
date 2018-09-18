@@ -1,13 +1,14 @@
 import React from 'react';
+import { translate } from "react-i18next";
 
 import { Container, Row } from 'reactstrap';
 
-const ContactsInfo = () => (
+const ContactsInfo = ({ t }) => (
   <Container>
     <Row>
-      ContactsInfo
+      { t('ContactsInfo') }
     </Row>
   </Container>
 );
 
-export default ContactsInfo;
+export default translate()(ContactsInfo);

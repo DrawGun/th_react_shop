@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import { translate } from "react-i18next";
+import { camelize } from 'humps';
+
 import Button from '~/src/components/elements/Button';
 import Image from '~/src/components/products/Image';
 import TextBox from '~/src/components/products/TextBox';
@@ -12,8 +15,9 @@ class BasketProduct extends Component {
   }
 
   render() {
-    const { product, deleteFromBasket } = this.props;
-    const { id, image, title, price } = product;
+    const { product, deleteFromBasket, lng } = this.props;
+    const { image, price } = product;
+    const title = product[camelize(`title_${lng}`)];
 
     return (
       <tr>
@@ -56,4 +60,4 @@ BasketProduct.defaultProps = {
   image: Image.defaultProps
 };
 
-export default BasketProduct;
+export default translate()(BasketProduct);

@@ -19,3 +19,5 @@ export const SET_MESSAGE = 'SET_MESSAGE';
 export const CLEAR_MESSAGE = 'CLEAR_MESSAGE';
 export const INIT_BASKET = 'INIT_BASKET';
 export const DELETE_FROM_BASKET = 'DELETE_FROM_BASKET';
+
+export const SET_LANGUAGE = 'SET_LANGUAGE';

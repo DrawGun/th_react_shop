@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 
 import { Redirect } from 'react-router'
+import { translate } from "react-i18next";
 
 import BasketContent from './BasketContent';
 
@@ -16,9 +17,9 @@ class Basket extends Component {
   }
 
   checkProducts(props) {
-    const { entries: products, setMessage } = props;
+    const { entries: products, setMessage, t } = props;
     if (products.length === 0) {
-      setMessage("В корзине ничего нет");
+      setMessage(t("Basket is empty"));
     }
   }
 
@@ -40,4 +41,4 @@ class Basket extends Component {
   }
 }
 
-export default Basket;
+export default translate()(Basket);

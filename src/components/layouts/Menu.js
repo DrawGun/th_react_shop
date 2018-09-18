@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { matchPath } from 'react-router'
+import { translate } from "react-i18next";
 
 import {
   Nav,
@@ -12,6 +13,7 @@ import ProductRoute from '~/src/routes/Product';
 import BasketButtonContainer from '~/src/containers/BasketButtonContainer';
 import Link from '~/src/components/elements/Link';
 import Button from '~/src/components/elements/Button';
+import LanguageDropdownContainer from '~/src/containers/LanguageDropdownContainer';
 
 import { basketPath, contactsPath, galleryPath } from '~/src/helpers/routes/common';
 import { productGalleryPath } from '~/src/helpers/routes/products';
@@ -35,6 +37,8 @@ class Menu extends Component {
   }
 
   render() {
+    const { t } = this.props;
+
     return (
       <Nav className='ml-auto' navbar>
         <NavItem className="mr-2">
@@ -46,14 +50,14 @@ class Menu extends Component {
             }}
           >
             <Button>
-              Gallery
+              { t("Gallery") }
             </Button>
           </NavLink>
         </NavItem>
         <NavItem className="mr-2">
           <NavLink tag={Link} to={contactsPath()}>
             <Button>
-              Contacts
+              { t("Contacts") }
             </Button>
           </NavLink>
         </NavItem>
@@ -68,9 +72,10 @@ class Menu extends Component {
             <BasketButtonContainer />
           </NavLink>
         </NavItem>
+        <LanguageDropdownContainer />
       </Nav>
     );
   }
 }
 
-export default Menu;
+export default translate()(Menu);

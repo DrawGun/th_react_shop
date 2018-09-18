@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { translate } from "react-i18next";
 
 import { Container } from 'reactstrap';
 import { map } from 'lodash';
@@ -12,7 +13,7 @@ class BasketContent extends Component {
   }
 
   render() {
-    const { products } = this.props;
+    const { products, t } = this.props;
 
     return (
       <Container>
@@ -20,8 +21,8 @@ class BasketContent extends Component {
           <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">Название</th>
-              <th scope="col">Цена</th>
+              <th scope="col">{ t("Title") }</th>
+              <th scope="col">{ t("Price") }</th>
               <th></th>
             </tr>
           </thead>
@@ -49,4 +50,4 @@ BasketContent.defaultProps = {
   products: []
 };
 
-export default BasketContent;
+export default translate()(BasketContent);

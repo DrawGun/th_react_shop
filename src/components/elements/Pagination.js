@@ -16,7 +16,7 @@ class Pagination extends Component {
   render() {
     const { maxProducts, step, page, fetchProducts } = this.props;
     const maxPage = ceil(maxProducts / step);
-    console.log(maxPage);
+
     return (
       <Row>
         <BootstrapPagination className='mx-auto'>

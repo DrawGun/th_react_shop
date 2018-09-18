@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { translate } from "react-i18next";
 
-const Price = ({ price }) => (
+const Price = ({ price, t }) => (
   <span>
-    { `Цена: ${price}` }
+    { `${t("Price")}: ${price}` }
   </span>
 );
 
@@ -15,4 +16,4 @@ Price.defaultProps = {
   price: '100500'
 };
 
-export default Price;
+export default translate()(Price);

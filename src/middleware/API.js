@@ -60,7 +60,7 @@ export default store => next => action => {
       headers: response.headers,
       query
     };
-    console.log(res, response);
+
     store.dispatch(nextAction(action, { 
       type: successType, 
       response: res

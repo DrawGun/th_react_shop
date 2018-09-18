@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
+import { translate } from "react-i18next";
 
 import { Button, Modal as ReactstrapModal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
@@ -25,17 +26,17 @@ class Modal extends Component {
 
   render() {
     const { modal } = this.state;
-    const { className, children } = this.props;
+    const { className, children, t } = this.props;
 
     return (
       <Fragment>
         <ReactstrapModal isOpen={modal} toggle={this.toggle} className={className} size='lg'>
-          <ModalHeader toggle={this.toggle}>Modal</ModalHeader>
+          <ModalHeader toggle={this.toggle}>{ t("Modal") }</ModalHeader>
           <ModalBody>
             { children }
           </ModalBody>
           <ModalFooter>
-            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+            <Button color="secondary" onClick={this.toggle}>{ t("Cancel") }</Button>
           </ModalFooter>
         </ReactstrapModal>
       </Fragment>
@@ -49,4 +50,4 @@ Modal.propTypes = {
   children: PropTypes.node
 };
 
-export default Modal;
+export default translate()(Modal);
