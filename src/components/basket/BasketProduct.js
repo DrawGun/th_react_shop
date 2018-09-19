@@ -33,7 +33,7 @@ class BasketProduct extends Component {
           <Price price={price} />
         </td>
         <td>
-          <Button onClick={() => deleteFromBasket(product)}>
+          <Button onClick={() => deleteFromBasket([product])}>
             {'-'}
           </Button>
         </td>

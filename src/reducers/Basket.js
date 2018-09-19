@@ -5,7 +5,8 @@ import {
   SET_MESSAGE,
   CLEAR_MESSAGE,
   INIT_BASKET,
-  DELETE_FROM_BASKET
+  DELETE_FROM_BASKET,
+  CLEAR_BASKET
 } from '~src/constants/actionTypes';
 
 const initialState = {
@@ -32,6 +33,8 @@ const initialState = {
       remove(clonedEntries, (e) => e == product);
 
       return assign({}, state, { entries: clonedEntries });
+    case CLEAR_BASKET:
+      return initialState;
     default:
       return state;
   }

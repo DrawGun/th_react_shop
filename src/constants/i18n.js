@@ -18,7 +18,11 @@ i18n.use(LanguageDetector).init({
         'Price': 'Price',
         'AddToBasket': 'AddToBasket',
         'Title': 'Title',
-        'Basket is empty': 'Basket is empty'
+        'Basket is empty': 'Basket is empty',
+        'Yours order': 'Yours order',
+        'Name': 'Name',
+        'Email': 'Email',
+        'Submit': 'Submit'
       }
     },
     ru: {
@@ -36,7 +40,11 @@ i18n.use(LanguageDetector).init({
         'Price': 'Цена',
         'AddToBasket': 'Добавить в корзину',
         'Title': 'Название',
-        'Basket is empty': 'В корзине ничего нет'
+        'Basket is empty': 'В корзине ничего нет',
+        'Yours order': 'Ваши заказы',
+        'Name': 'Имя',
+        'Email': 'E-mail',
+        'Submit': 'Отправить'
       }
     }
   },

@@ -6,6 +6,7 @@ import { Container } from 'reactstrap';
 import { map } from 'lodash';
 
 import BasketProductContainer from '~/src/containers/BasketProductContainer';
+import BasketFormContainer from '~/src/containers/BasketFormContainer';
 
 class BasketContent extends Component {
   constructor(props) {
@@ -17,6 +18,8 @@ class BasketContent extends Component {
 
     return (
       <Container>
+        <BasketFormContainer products={products} />
+        <hr />
         <table className="table table-dark">
           <thead>
             <tr>

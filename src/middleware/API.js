@@ -14,10 +14,10 @@ const APICall = (root = API_V1_PATH, endpoint, method, query, payload) => {
 
   if (query)
     r = r.query(stringify(query));
-  
+
   if (payload)
     r = r.send(payload);
-  
+
   return r;
 };
 
