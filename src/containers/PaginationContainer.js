@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { fetchProducts } from '~/src/actions/Products';
+import history from '~/src/helpers/routes/history';
 
 import Pagination from '~/src/components/elements/Pagination';
 
@@ -12,7 +12,11 @@ const stateToProps = (state) => ({
 });
 
 const actionsToProps = (dispatch) => ({
-  fetchProducts: (page) => dispatch(fetchProducts({ page }))
+  setStep: (page) => history.push({
+    pathname: "/",
+    search: `?page=${page}`,
+    state: {}
+  })
 });
 
 export default connect(stateToProps, actionsToProps)(Pagination);

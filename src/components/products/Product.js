@@ -13,15 +13,6 @@ class Product extends Component {
     super(props);
   }
 
-  componentDidMount() {
-    const { fetchProduct, item: product } = this.props;
-    const { id } = this.props.match.params;
-
-    if (!product || product.id !== id) {
-      fetchProduct(id);
-    }
-  }
-
   renderProductCard() {
     const { item: product } = this.props;
     if (isNil(product)) return null;
@@ -48,7 +39,6 @@ class Product extends Component {
 Product.propTypes = {
   isFetching: PropTypes.bool,
   error: PropTypes.bool,
-  fetchProduct: PropTypes.func,
   match: PropTypes.shape({
     params: PropTypes.shape({
       id: PropTypes.string.string

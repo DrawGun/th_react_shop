@@ -8,7 +8,8 @@ import {
   DELETE_FROM_BASKET,
   CREATE_ORDER_REQUEST,
   CREATE_ORDER_SUCCESS,
-  CREATE_ORDER_ERROR
+  CREATE_ORDER_ERROR,
+  CLEAR_BASKET
 } from '~/src/constants/actionTypes';
 
 export const pushToBasket = (product, count) => ({

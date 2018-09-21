@@ -14,7 +14,7 @@ class Pagination extends Component {
   }
 
   render() {
-    const { maxProducts, step, page, fetchProducts } = this.props;
+    const { maxProducts, step, page, setStep } = this.props;
     const maxPage = ceil(maxProducts / step);
 
     return (
@@ -23,7 +23,7 @@ class Pagination extends Component {
           {
             page != 1 && (
               <PaginationItem>
-                <PaginationLink previous onClick={() => fetchProducts(page - 1)} />
+                <PaginationLink previous onClick={() => setStep(page - 1)} />
               </PaginationItem>
             )
           }
@@ -33,7 +33,7 @@ class Pagination extends Component {
               
               return (
                 <PaginationItem key={stepByCount} active={stepByCount === page}>
-                  <PaginationLink onClick={() => fetchProducts(stepByCount)}>
+                  <PaginationLink onClick={() => setStep(stepByCount)}>
                     {stepByCount}
                   </PaginationLink>
                 </PaginationItem>
@@ -43,7 +43,7 @@ class Pagination extends Component {
           {
             page != maxPage && (
               <PaginationItem>
-                <PaginationLink next={page != maxPage} onClick={() => fetchProducts(page + 1)} />
+                <PaginationLink next={page != maxPage} onClick={() => setStep(page + 1)} />
               </PaginationItem>
             )
           }

@@ -15,14 +15,6 @@ class Catalog extends Component {
     this.onDismiss = this.onDismiss.bind(this);
   }
 
-  componentDidMount() {
-    const { fetchProducts, items } = this.props;
-
-    if (!items.length) {
-      fetchProducts({});
-    }
-  }
-
   onDismiss() {
     const { clearMessage } = this.props;
     this.setState({ visible: false }, () => clearMessage());

@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 
-import { fetchProducts } from '~/src/actions/Products';
 import { clearMessage } from '~/src/actions/Basket';
 
 import Catalog from '~/src/components/products/Catalog';
@@ -17,7 +16,6 @@ const stateToProps = (state) => ({
 });
 
 const actionsToProps = (dispatch) => ({
-  fetchProducts: (props) => dispatch(fetchProducts(props)),
   clearMessage: () => dispatch(clearMessage())
 });
 
