@@ -10,15 +10,6 @@ class Image extends Component {
     super(props);
   }
 
-  componentDidMount() {
-    const { fetchImage } = this.props;
-    const { id } = this.props.match.params;
-    
-    if (id) {
-      fetchImage(id);
-    }
-  }
-
   renderImage() {
     const { item: image } = this.props;
 

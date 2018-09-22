@@ -21,17 +21,6 @@ class Gallery extends Component {
     this.state = { activeIndex: 0 }
   }
 
-  componentDidMount() {
-    const { fetchImages, fetchImagesById } = this.props;
-    const { id } = this.props.match.params;
-    
-    if (id) {
-      fetchImagesById(id);
-    } else {
-      fetchImages()
-    }
-  }
-
   componentWillReceiveProps(nextProps) {
     const step = 3;
     const { secondsPassed } = this.props;

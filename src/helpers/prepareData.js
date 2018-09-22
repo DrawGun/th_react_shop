@@ -8,8 +8,10 @@ export default function(store, state) {
 
   const prepareDataFns = compact(map(routes, route => route.prepareData));
   
-  return map(
-    prepareDataFns,
-    prepareData => prepareData(store, query, params, location)
+  return Promise.all(
+    map(
+      prepareDataFns,
+      prepareData => prepareData(store, query, params, location)
+    )
   );
 }
