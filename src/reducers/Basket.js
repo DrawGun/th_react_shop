@@ -31,7 +31,6 @@ const initialState = {
       const { product } = action;
       const clonedEntries = clone(state.entries);
       remove(clonedEntries, (e) => e == product);
-
       return assign({}, state, { entries: clonedEntries });
     case CLEAR_BASKET:
       return initialState;

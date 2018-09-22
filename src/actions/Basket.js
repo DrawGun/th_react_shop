@@ -27,9 +27,9 @@ export const clearMessage = () => ({
   type: CLEAR_MESSAGE
 });
 
-export const deleteFromBasket = (products) => ({
+export const deleteFromBasket = (product) => ({
   type: DELETE_FROM_BASKET,
-  products
+  product
 });
 
 export const clearBasket = () => ({
