@@ -4,7 +4,7 @@ import {
   FETCH_IMAGE_REQUEST,
   FETCH_IMAGE_ERROR,
   FETCH_IMAGE_SUCCESS
-} from '~src/constants/actionTypes';
+} from '~/src/constants/actionTypes';
 
 const initialState = {
   isFetching: false,

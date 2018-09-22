@@ -7,7 +7,7 @@ import {
   INIT_BASKET,
   DELETE_FROM_BASKET,
   CLEAR_BASKET
-} from '~src/constants/actionTypes';
+} from '~/src/constants/actionTypes';
 
 const initialState = {
   message: null,

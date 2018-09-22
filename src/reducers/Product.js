@@ -4,7 +4,7 @@ import {
   FETCH_PRODUCT_REQUEST,
   FETCH_PRODUCT_ERROR,
   FETCH_PRODUCT_SUCCESS
-} from '~src/constants/actionTypes';
+} from '~/src/constants/actionTypes';
 
 const initialState = {
   isFetching: false,
