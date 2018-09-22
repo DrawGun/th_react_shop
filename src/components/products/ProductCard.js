@@ -1,6 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
+import { translate } from "react-i18next";
+import { camelize } from 'humps';
+
 import { Container, Row, Media } from 'reactstrap';
 
 import { productsPath } from '~/src/helpers/routes/products';
@@ -17,8 +20,11 @@ class ProductCard extends Component {
   }
 
   render() {
-    const { product, isShowProductPage } = this.props;
-    const { id, image, title, description, price } = product;
+    const { product, isShowProductPage, t, lng } = this.props;
+    const { id, image, price } = product;
+
+    const title = product[camelize(`title_${lng}`)];
+    const description = product[camelize(`description_${lng}`)];
 
     return (
       <Fragment>
@@ -50,7 +56,7 @@ class ProductCard extends Component {
                 !isShowProductPage &&
                   <Container className='mt-3'>
                     <Link to={productsPath(id)}>
-                      Подробнее
+                      { t("More") }
                     </Link>
                   </Container>
               }
@@ -82,4 +88,4 @@ ProductCard.defaultProps = {
   isShowProductPage: false
 };
 
-export default ProductCard;
+export default translate("translations")(ProductCard);

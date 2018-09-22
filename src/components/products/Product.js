@@ -6,32 +6,31 @@ import { isNil } from 'lodash';
 import { Container } from 'reactstrap';
 
 import ProductCard from './ProductCard';
+import renderSpinner from '~/src/helpers/Spinner';
 
 class Product extends Component {
   constructor(props) {
     super(props);
   }
 
-  componentDidMount() {
-    const { fetchProduct, item: product } = this.props;
-    const { id } = this.props.match.params;
+  renderProductCard() {
+    const { item: product } = this.props;
+    if (isNil(product)) return null;
 
-    if (!product || product.id !== id) {
-      fetchProduct(id);
-    }
+    return (
+      <ProductCard 
+        product={product} 
+        isShowProductPage 
+      />
+    );
   }
 
   render() {
-    const { item: product } = this.props;
-
-    if (isNil(product)) { return null; }
-
+    const { isFetching } = this.props;
+    
     return (
       <Container>
-        <ProductCard 
-          product={product} 
-          isShowProductPage 
-        />
+        { isFetching ? renderSpinner() : this.renderProductCard() }
       </Container>
     );
   }
@@ -40,7 +39,6 @@ class Product extends Component {
 Product.propTypes = {
   isFetching: PropTypes.bool,
   error: PropTypes.bool,
-  fetchProduct: PropTypes.func,
   match: PropTypes.shape({
     params: PropTypes.shape({
       id: PropTypes.string.string

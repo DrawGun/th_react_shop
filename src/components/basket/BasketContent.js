@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { translate } from "react-i18next";
 
 import { Container } from 'reactstrap';
 import { map } from 'lodash';
 
-import BasketProduct from './BasketProduct';
+import BasketProductContainer from '~/src/containers/BasketProductContainer';
+import BasketFormContainer from '~/src/containers/BasketFormContainer';
 
 class BasketContent extends Component {
   constructor(props) {
@@ -12,16 +14,19 @@ class BasketContent extends Component {
   }
 
   render() {
-    const { products } = this.props;
+    const { products, t } = this.props;
 
     return (
       <Container>
+        <BasketFormContainer products={products} />
+        <hr />
         <table className="table table-dark">
           <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">Название</th>
-              <th scope="col">Цена</th>
+              <th scope="col">{ t("Title") }</th>
+              <th scope="col">{ t("Price") }</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -29,7 +34,7 @@ class BasketContent extends Component {
               map(
                 products,
                 (product, index) => (
-                  <BasketProduct key={`${product.id}-${index}`} {...product} />
+                  <BasketProductContainer key={`${product.id}-${index}`} product={product} />
                 )
               )
             }
@@ -48,4 +53,4 @@ BasketContent.defaultProps = {
   products: []
 };
 
-export default BasketContent;
+export default translate()(BasketContent);

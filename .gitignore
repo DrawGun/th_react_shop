@@ -1,5 +1,7 @@
 /node_modules
-/dist
+/dist/*
+!/dist/stylesheets
+!/dist/images
 yarn.lock
 yarn-error.log
 

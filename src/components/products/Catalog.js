@@ -5,6 +5,8 @@ import { Container, Alert, Row } from 'reactstrap';
 import { map, isNull } from 'lodash';
 
 import ProductCard from './ProductCard';
+import PaginationContainer from '~/src/containers/PaginationContainer';
+import renderSpinner from '~/src/helpers/Spinner';
 
 class Catalog extends Component {
   constructor(props) {
@@ -13,42 +15,44 @@ class Catalog extends Component {
     this.onDismiss = this.onDismiss.bind(this);
   }
 
-  componentDidMount() {
-    const { fetchProducts, message, items } = this.props;
-
-    if (!items.length) {
-      fetchProducts();
-    }
-  }
-
   onDismiss() {
     const { clearMessage } = this.props;
     this.setState({ visible: false }, () => clearMessage());
   }
 
-  render() {
-    const { items, message } = this.props;
-    const isAlertShown = !isNull(message);
+  renderProducts() {
+    const { items: products } = this.props;
 
     return (
       <Fragment>
-        <Container>
-          {
-            message &&
-              <Alert color="info" isOpen={isAlertShown} toggle={this.onDismiss}>
-                {message}
-              </Alert>
-          }
-          {
-            map(
-              items,
-              (product, index) => (
-                <ProductCard key={`${product.id}-${index}`} product={product} />
-              )
+        {
+          map(
+            products,
+            (product, index) => (
+              <ProductCard key={`${product.id}-${index}`} product={product} />
             )
-          }
-        </Container>
+          )
+        }
+
+        <PaginationContainer />
       </Fragment>
+    );
+  }
+
+  render() {
+    const { isFetching, message } = this.props;
+    const isAlertShown = !isNull(message);
+
+    return (
+      <Container>
+        {
+          message &&
+            <Alert color="info" isOpen={isAlertShown} toggle={this.onDismiss}>
+              {message}
+            </Alert>
+        }
+        { isFetching ? renderSpinner() : this.renderProducts() }
+      </Container>  
     );
   }
 }

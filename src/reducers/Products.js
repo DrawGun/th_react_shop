@@ -8,20 +8,30 @@ import {
 
 const initialState = {
   isFetching: false,
-  error: false,
+  isError: false,
+  error: null,
+  query: null,
+  maxProducts: 0,
+  step: 3,
+  page: 1,
   entries: []
 };
 
  export default function(state = initialState, action) {
   switch (action.type) {
     case FETCH_PRODUCTS_REQUEST:
-      return assign({}, state, { isFetching: true });
+      return assign({}, initialState, { isFetching: true });
     case FETCH_PRODUCTS_ERROR:
-      return assign({}, state, { error: true });
+      return assign({}, initialState, { isError: true, error: action.error });
     case FETCH_PRODUCTS_SUCCESS:
-      return assign({}, state, {
-        entries: action.response,
-        isFetching: false
+      const { response } = action;
+
+      return assign({}, initialState, {
+        entries: response.body,
+        maxProducts: parseInt(response.headers['x-total']),
+        page: parseInt(response.headers['x-page']),
+        step: parseInt(response.headers['x-per-page']),
+        query: response.query.query
       });
     default:
       return state;

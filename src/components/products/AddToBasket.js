@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
+import { translate } from "react-i18next";
 import { ButtonGroup } from 'reactstrap';
 
 import Button from '~/src/components/elements/Button';
@@ -24,7 +24,7 @@ class AddToBasket extends Component {
   }
 
   render() {
-    const { item: product, pushToBasket } = this.props;
+    const { item: product, pushToBasket, t } = this.props;
     const { count } = this.state;
 
     return (
@@ -33,7 +33,7 @@ class AddToBasket extends Component {
           {'-'}
         </Button>
         <Button onClick={() => pushToBasket(product, count)}>
-          {`Добавить в корзину: ${count}`}
+          {`${t("AddToBasket")}: ${count}`}
         </Button>
         <Button onClick={() => this.changeCount('increment')}>
           {'+'}
@@ -47,4 +47,4 @@ AddToBasket.propTypes = {
   product: PropTypes.object
 };
 
-export default AddToBasket;
+export default translate()(AddToBasket);
