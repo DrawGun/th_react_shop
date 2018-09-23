@@ -1,4 +1,7 @@
+global.__SERVER__ = true;
+
 const path = require('path');
+const renderApp = require('./../../serverApp/renderApp').default;
 
 const manifest = require('../../public/assets/manifest.json');
 
@@ -15,7 +18,11 @@ application.set('view engine', 'ejs');
 const webpackAsset = (bundle) => manifest[bundle];
 
 application.get('*', (req, res) => {
-  res.render('index', { webpackAsset });
+  renderApp(req, res)
+    .then((renderParams) => {
+      const params = Object.assign({ webpackAsset }, renderParams);
+      res.render('index', params);
+    })
 });
 
 application.listen(port, function() {

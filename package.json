@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "build": "webpack-cli",
+    "build:server": "webpack-cli --config webpack.server.js",
     "start:dev": "node ./initializers/server/index.js"
   },
   "dependencies": {
@@ -31,6 +32,7 @@
     "react-bootstrap": "^0.32.4",
     "react-dom": "^0.14.9 || >=15.3.0",
     "react-fontawesome": "^1.6.1",
+    "react-helmet": "^5.2.0",
     "react-i18next": "^7.12.0",
     "react-redux": "^5.0.7",
     "react-router": "^4.3.1",
@@ -48,7 +50,8 @@
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.2",
     "css-loader": "^1.0.0",
-    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "ignore-loader": "^0.1.2",
+    "mini-css-extract-plugin": "^0.4.3",
     "node-sass": "^4.9.3",
     "redux-devtools-extension": "^2.13.5",
     "sass-loader": "^7.1.0",

@@ -1,6 +1,7 @@
 const path = require('path');
+const webpack = require('webpack');
 const ManifestPlugin = require('webpack-manifest-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   mode: 'development',
@@ -28,19 +29,23 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.css/,
-        loaders: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: ['css-loader']
-        })
+        test: /\.css$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader
+          },
+          'css-loader'
+        ]
       },
       {
         test: /\.scss$/,
-        loaders: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: ['css-loader', 'sass-loader']
-        })
-        
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader
+          },
+          'css-loader',
+          'sass-loader'
+        ]
       },
       {
         test: /\.(eot|png|ttf|svg|woff|woff2)$/,
@@ -50,7 +55,14 @@ module.exports = {
   },
   plugins: [
     new ManifestPlugin(),
-    new ExtractTextPlugin('[name].[chunkhash].css')
+    new MiniCssExtractPlugin({
+      filename: "[name].[hash].css",
+      chunkFilename: "[id].[hash].css"
+    }),
+    new webpack.DefinePlugin({
+      __SERVER__: false,
+      __CLIENT__: true
+    }),
   ],
   optimization: {
     splitChunks: {
