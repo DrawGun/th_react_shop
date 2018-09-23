@@ -26,14 +26,16 @@ class Menu extends Component {
   getGalleryPath() {
     let path = galleryPath()
 
-    const match = matchPath(window.location.pathname, ProductRoute);
-    if (match) {
-      const { id } = match.params;
+    if (__CLIENT__) {
+      const match = matchPath(window.location.pathname, ProductRoute);
+      if (match) {
+        const { id } = match.params;
 
-      path = productGalleryPath(id)
+        path = productGalleryPath(id)
+      }
+
+      return path;
     }
-
-    return path
   }
 
   render() {

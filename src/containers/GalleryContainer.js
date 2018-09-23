@@ -1,7 +1,5 @@
 import { connect } from 'react-redux';
 
-import { fetchImages, fetchImagesById } from '~/src/actions/Gallery';
-
 import Gallery from '~/src/components/gallery/Gallery';
 
 const stateToProps = (state, ownProps) => ({
@@ -11,9 +9,4 @@ const stateToProps = (state, ownProps) => ({
   isModal: ownProps.isModal
 });
 
-const actionsToProps = (dispatch) => ({
-  fetchImages: () => dispatch(fetchImages()),
-  fetchImagesById: (id) => dispatch(fetchImagesById(id))
-});
-
-export default connect(stateToProps, actionsToProps)(Gallery);
+export default connect(stateToProps)(Gallery);

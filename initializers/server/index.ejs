@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <%- helmet.title.toString() %>
+      <%- helmet.meta.toString() %>
+
+    <link rel="stylesheet" type="text/css" href="<%- webpackAsset('vendors.css') %>" />
+    <link rel="stylesheet" type="text/css" href="<%- webpackAsset('bundle.css') %>" />
+  </head>
+  <body>
+    <div id='root'><%- content %></div>
+    <script type="text/javascript" src="<%- webpackAsset('vendors.js') %>"></script>
+    <script type="text/javascript">window.__INITIAL_STATE__ = <%- initialState %></script>
+    <script type="text/javascript" src="<%- webpackAsset('bundle.js') %>"></script>
+  </body>
+</html>

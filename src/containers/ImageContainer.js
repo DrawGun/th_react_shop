@@ -1,7 +1,5 @@
 import { connect } from 'react-redux';
 
-import { fetchImage } from '~/src/actions/Image';
-
 import Image from '~/src/components/gallery/Image'
 
 const stateToProps = (state) => ({
@@ -10,8 +8,4 @@ const stateToProps = (state) => ({
   error: state.image.error
 });
 
-const actionsToProps = (dispatch) => ({
-  fetchImage: (id) => dispatch(fetchImage(id))
-});
-
-export default connect(stateToProps, actionsToProps)(Image);
+export default connect(stateToProps)(Image);

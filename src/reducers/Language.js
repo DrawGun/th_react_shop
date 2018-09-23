@@ -1,6 +1,6 @@
 import {
   SET_LANGUAGE
-} from '~src/constants/actionTypes';
+} from '~/src/constants/actionTypes';
 
 const initialState = {
   language: 'ru'

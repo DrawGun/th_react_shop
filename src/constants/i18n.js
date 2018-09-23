@@ -50,7 +50,7 @@ i18n.use(LanguageDetector).init({
   },
   lng: 'ru',
   fallbackLng: 'ru',
-  debug: true,
+  debug: false,
   ns: ['translations'],
   defaultNS: 'translations',
   keySeparator: false,

@@ -5,6 +5,8 @@
 yarn.lock
 yarn-error.log
 
+/public/assets
+
 .cache
 .DS_Store
 .vscode
