@@ -1,3 +1,5 @@
+const path = require('path');
+
 const manifest = require('../../public/assets/manifest.json');
 
 const port = 8080;
@@ -5,7 +7,7 @@ const port = 8080;
 const express = require('express');
 const application = express();
 
-application.use(express.static('public'));
+application.use(express.static(path.resolve(process.cwd(), 'public')));
 
 application.set('views', __dirname);
 application.set('view engine', 'ejs');
